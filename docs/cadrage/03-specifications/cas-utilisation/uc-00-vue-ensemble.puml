@@ -1,0 +1,49 @@
+@startuml uc-00-vue-ensemble
+title Rolliste — Vue d'ensemble des cas d'utilisation (v0.2)
+!include _style.puml
+left to right direction
+
+actor "Visiteur" as Visitor
+actor "Utilisateur" as User
+actor "Joueur" as Player
+actor "Meneur" as GM
+actor "Administrateur" as Admin
+actor "Service d'e-mail" as Mail <<système>>
+actor "Service de\nnotifications push" as Push <<système>>
+
+User <|-- Player
+User <|-- GM
+User <|-- Admin
+
+rectangle "Rolliste" {
+  package "Compte" as P_Account {
+    label "Détail : uc-01" as L_P_Account
+  }
+  package "Personnages et sessions" as P_Sessions {
+    label "Détail : uc-02" as L_P_Sessions
+  }
+  package "Jeu en session et compendium" as P_Play {
+    label "Détail : uc-03" as L_P_Play
+  }
+  package "Administration" as P_Admin {
+    label "Détail : uc-01" as L_P_Admin
+  }
+}
+
+Visitor --> P_Account
+User --> P_Account
+User --> P_Sessions
+Player --> P_Play
+GM --> P_Sessions
+GM --> P_Play
+Admin --> P_Admin
+P_Account --> Mail
+P_Play --> Push
+
+note bottom of User
+  Rôle porté par tout compte authentifié.
+  Joueur et Meneur sont des rôles **par session** :
+  un même utilisateur peut être Meneur d'une session
+  et Joueur dans une autre.
+end note
+@enduml

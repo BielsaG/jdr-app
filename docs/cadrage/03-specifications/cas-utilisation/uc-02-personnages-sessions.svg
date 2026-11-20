@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="972px" preserveAspectRatio="none" style="width:766px;height:972px;" version="1.1" viewBox="0 0 766 972" width="766px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="243" x="273" y="13.897">Rolliste — Personnages et sessions (v0.2)</text><!--MD5=[22b356f8fe6a1085bee7afa0b5cb36ac]
+cluster Rolliste--><rect fill="#FFFFFF" height="874" style="stroke: #4A5A7A; stroke-width: 1.5;" width="532.01" x="223" y="87.706"/><text fill="#000000" font-family="Arial" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="49" x="464.505" y="103.603">Rolliste</text><!--MD5=[d653abc8051777044e2bd9cc9af21cca]
+cluster Personnages--><polygon fill="#FFFFFF" points="247.85,809.706,337.85,809.706,344.85,833.412,444.58,833.412,444.58,937.706,247.85,937.706,247.85,809.706" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="247.85" x2="344.85" y1="833.412" y2="833.412"/><text fill="#000000" font-family="Arial" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="84" x="251.85" y="825.603">Personnages</text><!--MD5=[c0cf20ff7eeaa1f78ffce37a1e9dd751]
+cluster Sessions--><polygon fill="#FFFFFF" points="247,131.706,307,131.706,314,155.412,731.01,155.412,731.01,785.706,247,785.706,247,131.706" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="247" x2="314" y1="155.412" y2="155.412"/><text fill="#000000" font-family="Arial" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="54" x="251" y="147.603">Sessions</text><ellipse cx="346.214" cy="883.7106" fill="#F4F6FA" rx="82.364" ry="37.5546" style="stroke: #4A5A7A; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="70" x="311.214" y="866.9037">Gérer ses PJ</text><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="99" x="296.714" y="884.6098">(créer, consulter,</text><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="122" x="285.214" y="902.3158">modifier, supprimer)</text><ellipse cx="346.2052" cy="677.7031" fill="#F4F6FA" rx="82.8852" ry="18.977" style="stroke: #4A5A7A; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="133" x="279.7052" y="683.0561">Consulter ses sessions</text><ellipse cx="346.2105" cy="184.7101" fill="#F4F6FA" rx="71.6705" ry="16.7341" style="stroke: #4A5A7A; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="105" x="293.7105" y="190.0631">Créer une session</text><ellipse cx="346.2109" cy="750.7042" fill="#F4F6FA" rx="81.6409" ry="18.7282" style="stroke: #4A5A7A; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="130" x="281.2109" y="756.0572">Rejoindre une session</text><ellipse cx="632.6105" cy="742.704" fill="#F4F6FA" rx="82.4005" ry="26.628" style="stroke: #4A5A7A; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="87" x="589.1105" y="737.1435">Rejoindre avec</text><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="119" x="573.1105" y="754.8495">un code d'invitation</text><ellipse cx="632.6109" cy="586.7042" fill="#F4F6FA" rx="81.6409" ry="18.7282" style="stroke: #4A5A7A; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="130" x="567.6109" y="592.0572">Demander à rejoindre</text><ellipse cx="346.2146" cy="510.7064" fill="#F4F6FA" rx="73.3146" ry="26.4904" style="stroke: #4A5A7A; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="74" x="309.2146" y="504.9372">Parcourir les</text><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="106" x="293.2146" y="522.6432">sessions ouvertes</text><ellipse cx="346.2067" cy="263.7046" fill="#F4F6FA" rx="64.5967" ry="27.5086" style="stroke: #4A5A7A; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="81" x="305.7067" y="259.4446">Choisir son PJ</text><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="89" x="301.7067" y="277.1506">pour la session</text><ellipse cx="346.2116" cy="343.7083" fill="#F4F6FA" rx="75.9616" ry="17.5923" style="stroke: #4A5A7A; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="116" x="288.2116" y="349.0613">Quitter une session</text><ellipse cx="346.2147" cy="422.7012" fill="#F4F6FA" rx="68.5447" ry="26.4451" style="stroke: #4A5A7A; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="99" x="296.7147" y="421.5393">Générer un code</text><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="68" x="312.2147" y="439.2453">d'invitation</text><ellipse cx="346.2116" cy="597.7029" fill="#F4F6FA" rx="83.2116" ry="25.9069" style="stroke: #4A5A7A; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="124" x="284.2116" y="597.3754">Traiter les demandes</text><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="66" x="313.2116" y="615.0814">d'adhésion</text><!--MD5=[fee662a292a0353a69bd162820bae93b]
+entity User--><ellipse cx="37" cy="601.356" fill="#FFFFFF" rx="8" ry="8" style="stroke: #444444; stroke-width: 1.5;"/><path d="M37,609.356 L37,636.356 M24,617.356 L50,617.356 M37,636.356 L24,651.356 M37,636.356 L50,651.356 " fill="none" style="stroke: #444444; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="62" x="6" y="667.753">Utilisateur</text><!--MD5=[de2effd8dc5bf946a609466312d0f75f]
+entity Player--><ellipse cx="152.5" cy="313.356" fill="#FFFFFF" rx="8" ry="8" style="stroke: #444444; stroke-width: 1.5;"/><path d="M152.5,321.356 L152.5,348.356 M139.5,329.356 L165.5,329.356 M152.5,348.356 L139.5,363.356 M152.5,348.356 L165.5,363.356 " fill="none" style="stroke: #444444; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="40" x="132.5" y="379.753">Joueur</text><!--MD5=[e1c8081d9970b9b7b83adc32ee9c7782]
+entity GM--><ellipse cx="152.5" cy="554.356" fill="#FFFFFF" rx="8" ry="8" style="stroke: #444444; stroke-width: 1.5;"/><path d="M152.5,562.356 L152.5,589.356 M139.5,570.356 L165.5,570.356 M152.5,589.356 L139.5,604.356 M152.5,589.356 L165.5,604.356 " fill="none" style="stroke: #444444; stroke-width: 1.5;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="47" x="129" y="620.753">Meneur</text><path d="M260.21,25.996 L260.21,71.408 A0,0 0 0 0 260.21,71.408 L342.21,71.408 L346.21,167.706 L350.21,71.408 L432.21,71.408 A0,0 0 0 0 432.21,71.408 L432.21,35.996 L422.21,25.996 L260.21,25.996 A0,0 0 0 0 260.21,25.996 " fill="#FFF8DC" style="stroke: #B8A060; stroke-width: 1.0;"/><path d="M422.21,25.996 L422.21,35.996 L432.21,35.996 L422.21,25.996 " fill="#FFF8DC" style="stroke: #B8A060; stroke-width: 1.0;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="151" x="266.21" y="44.893">Le créateur d'une session</text><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="129" x="266.21" y="62.599">en devient le Meneur.</text><!--MD5=[702f68b2ad22fef5191ac7472ca929ab]
+reverse link User to Player--><path d="M61.72,571.526 C83.93,515.156 116.51,432.496 135.71,383.786 " fill="none" id="User&lt;-Player" style="stroke: #444444; stroke-width: 1.0;"/><polygon fill="none" points="68.3,573.906,54.46,589.946,55.28,568.776,68.3,573.906" style="stroke: #444444; stroke-width: 1.0;"/><!--MD5=[4dce2e760da5767d3a563c76bb7398f3]
+reverse link User to GM--><path d="M88.24,610.906 C102.32,605.076 116.93,599.016 128.57,594.206 " fill="none" id="User&lt;-GM" style="stroke: #444444; stroke-width: 1.0;"/><polygon fill="none" points="90.97,617.346,69.81,618.536,85.61,604.416,90.97,617.346" style="stroke: #444444; stroke-width: 1.0;"/><!--MD5=[d57a6de8e95dd942aceb4a6ad893de8b]
+link User to UC_ManageChars--><path d="M68.45,659.366 C103.27,690.726 162.29,743.026 215,785.706 C241.28,806.986 271.4,829.746 296.04,847.976 " fill="none" id="User-&gt;UC_ManageChars" style="stroke: #444444; stroke-width: 1.0;"/><polygon fill="#444444" points="300,850.896,295.1263,842.3376,295.9744,847.9305,290.3814,848.7786,300,850.896" style="stroke: #444444; stroke-width: 1.0;"/><!--MD5=[27f1171477c279bfd74091fabf432b70]
+link User to UC_MySessions--><path d="M68.3,636.246 C114.71,643.196 204.84,656.686 269.68,666.396 " fill="none" id="User-&gt;UC_MySessions" style="stroke: #444444; stroke-width: 1.0;"/><polygon fill="#444444" points="274.38,667.096,266.0744,661.8029,269.4355,666.3529,264.8855,669.714,274.38,667.096" style="stroke: #444444; stroke-width: 1.0;"/><!--MD5=[3879f869f664ba36eda5877223e5af8f]
+link User to UC_Create--><path d="M40.41,591.416 C46.18,523.406 65.45,383.736 129,286.706 C155.7,245.946 171.39,240.436 215,218.706 C235.37,208.556 259.08,201.216 280.65,196.006 " fill="none" id="User-&gt;UC_Create" style="stroke: #444444; stroke-width: 1.0;"/><polygon fill="#444444" points="285.49,194.866,275.8143,193.0274,280.6222,196.008,277.6415,200.8159,285.49,194.866" style="stroke: #444444; stroke-width: 1.0;"/><!--MD5=[370b456d16d838ea060271340c1ffb46]
+link User to UC_Join--><path d="M68.39,647.576 C103.16,665.306 162.13,694.086 215,713.706 C236.95,721.856 261.54,729.266 283.39,735.276 " fill="none" id="User-&gt;UC_Join" style="stroke: #444444; stroke-width: 1.0;"/><polygon fill="#444444" points="288.01,736.536,280.3812,730.307,283.1865,735.2192,278.2743,738.0246,288.01,736.536" style="stroke: #444444; stroke-width: 1.0;"/><!--MD5=[bbe0e7370b0c3cc449e19f5c10cdc6cd]
+reverse link UC_Join to UC_JoinCode--><path d="M448.93,747.846 C482.27,746.906 518.85,745.876 550.47,744.986 " fill="none" id="UC_Join&lt;-UC_JoinCode" style="stroke: #444444; stroke-width: 1.0;"/><polygon fill="none" points="449.27,754.836,429.08,748.406,448.88,740.846,449.27,754.836" style="stroke: #444444; stroke-width: 1.0;"/><!--MD5=[4cb7e4adaf8f0edcb8997088627c2789]
+reverse link UC_Join to UC_JoinRequest--><path d="M418.45,728.746 C430.09,724.296 441.84,719.256 452.58,713.706 C513.67,682.106 577.62,631.926 610.02,605.086 " fill="none" id="UC_Join&lt;-UC_JoinRequest" style="stroke: #444444; stroke-width: 1.0;"/><polygon fill="none" points="421.14,735.226,399.95,735.376,416.42,722.046,421.14,735.226" style="stroke: #444444; stroke-width: 1.0;"/><!--MD5=[a7db91e07707dee0f55b07df8761ac27]
+reverse link UC_Browse to UC_JoinRequest--><path d="M412.17,528.066 C462.35,541.476 530.97,559.816 578.04,572.386 " fill="none" id="UC_Browse&lt;-UC_JoinRequest" style="stroke: #444444; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#444444" points="407.6,526.846,415.2677,533.0271,412.4316,528.1326,417.3262,525.2965,407.6,526.846" style="stroke: #444444; stroke-width: 1.0;"/><text fill="#000000" font-family="Arial" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="56" x="463.21" y="537.793">«extend»</text><!--MD5=[829dee455651480a7906beefc5cc1f6d]
+link Player to UC_PickChar--><path d="M172.96,331.406 C184.82,324.216 200.45,315.296 215,308.706 C237.9,298.336 263.95,288.896 286.7,281.376 " fill="none" id="Player-&gt;UC_PickChar" style="stroke: #444444; stroke-width: 1.0;"/><polygon fill="#444444" points="291.27,279.876,281.4722,278.8743,286.5181,281.4314,283.9609,286.4773,291.27,279.876" style="stroke: #444444; stroke-width: 1.0;"/><!--MD5=[2d5bc9c77f686b7e9ce64da4de754284]
+link Player to UC_Leave--><path d="M172.94,343.706 C194.36,343.706 230.22,343.706 263.69,343.706 " fill="none" id="Player-&gt;UC_Leave" style="stroke: #444444; stroke-width: 1.0;"/><polygon fill="#444444" points="268.4,343.706,259.4,339.706,263.4,343.706,259.4,347.706,268.4,343.706" style="stroke: #444444; stroke-width: 1.0;"/><!--MD5=[2d6dcd28dd9a6bf7c119e3edf6686460]
+link GM to UC_InviteCode--><path d="M165.75,544.416 C175.39,518.926 191.22,487.066 215,466.706 C232.48,451.736 255.27,441.806 276.88,435.236 " fill="none" id="GM-&gt;UC_InviteCode" style="stroke: #444444; stroke-width: 1.0;"/><polygon fill="#444444" points="281.49,433.896,271.73,432.576,276.69,435.296,273.97,440.256,281.49,433.896" style="stroke: #444444; stroke-width: 1.0;"/><!--MD5=[9e42724d74508602f7d4d83a5003270b]
+link GM to UC_Requests--><path d="M176.24,586.246 C196.71,587.636 228.12,589.766 258.33,591.816 " fill="none" id="GM-&gt;UC_Requests" style="stroke: #444444; stroke-width: 1.0;"/><polygon fill="#444444" points="263.24,592.146,254.5225,587.5628,258.2508,591.8172,253.9964,595.5455,263.24,592.146" style="stroke: #444444; stroke-width: 1.0;"/><!--MD5=[bd8e2abc9509a5f20b5a2ebed57af29f]
+@startuml uc-02-personnages-sessions
+title Rolliste — Personnages et sessions (v0.2)
+skinparam shadowing false
+skinparam monochrome false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam packageStyle rectangle
+skinparam ArrowColor #444444
+skinparam actor {
+  BorderColor #444444
+  BackgroundColor #FFFFFF
+}
+skinparam usecase {
+  BackgroundColor #F4F6FA
+  BorderColor #4A5A7A
+}
+skinparam rectangle {
+  BorderColor #4A5A7A
+}
+skinparam note {
+  BackgroundColor #FFF8DC
+  BorderColor #B8A060
+}
+left to right direction
+
+actor "Utilisateur" as User
+actor "Joueur" as Player
+actor "Meneur" as GM
+
+User <|- - Player
+User <|- - GM
+
+rectangle "Rolliste" {
+  package "Personnages" {
+    usecase "Gérer ses PJ\n(créer, consulter,\nmodifier, supprimer)" as UC_ManageChars
+  }
+  package "Sessions" {
+    usecase "Consulter ses sessions" as UC_MySessions
+    usecase "Créer une session" as UC_Create
+    usecase "Rejoindre une session" as UC_Join
+    usecase "Rejoindre avec\nun code d'invitation" as UC_JoinCode
+    usecase "Demander à rejoindre" as UC_JoinRequest
+    usecase "Parcourir les\nsessions ouvertes" as UC_Browse
+    usecase "Choisir son PJ\npour la session" as UC_PickChar
+    usecase "Quitter une session" as UC_Leave
+    usecase "Générer un code\nd'invitation" as UC_InviteCode
+    usecase "Traiter les demandes\nd'adhésion" as UC_Requests
+  }
+}
+
+User - -> UC_ManageChars
+User - -> UC_MySessions
+User - -> UC_Create
+User - -> UC_Join
+UC_Join <|- - UC_JoinCode
+UC_Join <|- - UC_JoinRequest
+UC_Browse <.. UC_JoinRequest : <<extend>>
+
+Player - -> UC_PickChar
+Player - -> UC_Leave
+
+GM - -> UC_InviteCode
+GM - -> UC_Requests
+
+note bottom of UC_Create
+  Le créateur d'une session
+  en devient le Meneur.
+end note
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 11:22:07 CET 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 25.0.5.1+2-1-26.04.1-Ubuntu
+Operating System: Linux
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg>

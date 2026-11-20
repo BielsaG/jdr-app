@@ -1,0 +1,60 @@
+@startuml uc-03-jeu-compendium
+title Rolliste — Jeu en session et compendium (v0.2)
+!include _style.puml
+left to right direction
+
+actor "Joueur" as Player
+actor "Meneur" as GM
+actor "Service de\nnotifications push" as Push <<système>>
+
+rectangle "Rolliste" {
+  package "Jeu en session" {
+    usecase "Lancer un jet de dés" as UC_Roll
+    usecase "Consulter les jets\nde la table" as UC_SeeRolls
+    usecase "Agir pendant un combat" as UC_Act
+    usecase "Rendre un verdict\nsur un jet" as UC_Ruling
+    usecase "Lancer un jet caché" as UC_Hidden
+    usecase "Surcharger une valeur\nde la fiche d'un PJ" as UC_Override
+    usecase "Appliquer un état\nà un personnage" as UC_Condition
+    usecase "Annuler la dernière action" as UC_Undo
+    usecase "Mener un combat\n(initiative, tours)" as UC_Encounter
+    usecase "Ajouter un ennemi\nau combat" as UC_AddEnemy
+    usecase "Gérer des PNJ" as UC_Npc
+    usecase "Faire monter\nun PJ de niveau" as UC_LevelUp
+    usecase "Lancer un\névénement aléatoire" as UC_Random
+  }
+  package "Compendium" {
+    usecase "Consulter le compendium" as UC_Compendium
+    usecase "Gérer son contenu maison" as UC_Homebrew
+  }
+}
+
+Player --> UC_Roll
+Player --> UC_SeeRolls
+Player --> UC_Act
+Player --> UC_Compendium
+
+GM --> UC_Ruling
+GM --> UC_Hidden
+GM --> UC_Override
+GM --> UC_Condition
+GM --> UC_Undo
+GM --> UC_Encounter
+GM --> UC_Npc
+GM --> UC_LevelUp
+GM --> UC_Random
+GM --> UC_Homebrew
+GM --> UC_Compendium
+
+UC_Encounter <.. UC_AddEnemy : <<extend>>
+UC_AddEnemy ..> UC_Compendium : <<include>>
+
+UC_Ruling --> Push
+UC_Condition --> Push
+
+note right of UC_Ruling
+  **Principe n°1 : le MJ a le dernier mot.**
+  Le verdict confirme, maquille ou modifie
+  le résultat calculé d'un jet de joueur.
+end note
+@enduml
