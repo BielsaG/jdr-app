@@ -330,7 +330,7 @@ ensuite les fonctionnalités**. Le MVP est une **tranche verticale** qui suffit 
 
 | Phase | Contenu | Blocs alimentés | Estimation |
 | - | - | - | - |
-| P0 — Cadrage | Commanditaire, parties prenantes, entretien de besoin, opportunités et menaces, faisabilité, risques, veille, étude comparative, équipe fictive, estimation de charge et budget, architecture, CDC v1, ADR | **BC01**, BC03 | 35 h |
+| P0 — Cadrage | Commanditaire, parties prenantes, entretien de besoin, opportunités et menaces, faisabilité, risques, veille, étude comparative, équipe fictive, estimation de charge et budget, architecture et modélisation UML, CDC v1, ADR | **BC01**, BC03 | 41,5 h |
 | P1 — Socle | Monorepo, environnements de dev et de test, CI, déploiement continu, supervision, Renovate, prototype (maquettes) | BC02, BC04 | 25 h |
 | P2 — Tranche verticale MVP | Authentification, PJ avec calcul automatique (sous-ensemble), session et invitation, jet → verdict en temps réel, modification de fiche par le MJ ; tests unitaires | **BC02** | 80 h |
 | P3 — Recette et mise en production | Cahier de recettes, plan de correction, manuels (déploiement, utilisation, mise à jour), bêta avec de vrais joueurs | BC02, BC03 | 25 h |
@@ -338,7 +338,7 @@ ensuite les fonctionnalités**. Le MVP est une **tranche verticale** qui suffit 
 | P5 — Pilotage continu | Tableaux de bord, comptes rendus, arbitrage, évaluation de l'équipe | **BC03** | 20 h (étalées) |
 | P6 — Certification | Dossiers BC02 et BC04, supports oraux BC01 et BC03, répétitions | Tous | 40 h |
 | Marge (≈ 15 %) | | | 35 h |
-| **Socle certifiant** | | | **≈ 280 h, soit ≈ 3,2 h/semaine** |
+| **Socle certifiant** | | | **≈ 287 h, soit ≈ 3,3 h/semaine** |
 | P7 — Extensions (optionnelles) | Combat, compendium, push, PNJ, montée de niveau | BC02 | 0 à 60 h |
 
 **Jalons clés :**

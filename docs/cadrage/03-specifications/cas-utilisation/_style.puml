@@ -1,0 +1,22 @@
+' Style commun des diagrammes de cas d'utilisation Rolliste
+skinparam shadowing false
+skinparam monochrome false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam packageStyle rectangle
+skinparam ArrowColor #444444
+skinparam actor {
+  BorderColor #444444
+  BackgroundColor #FFFFFF
+}
+skinparam usecase {
+  BackgroundColor #F4F6FA
+  BorderColor #4A5A7A
+}
+skinparam rectangle {
+  BorderColor #4A5A7A
+}
+skinparam note {
+  BackgroundColor #FFF8DC
+  BorderColor #B8A060
+}

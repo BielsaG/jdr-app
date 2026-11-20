@@ -1,0 +1,44 @@
+@startuml uc-01-compte-administration
+title Rolliste — Compte et administration (v0.2)
+!include _style.puml
+left to right direction
+
+actor "Visiteur" as Visitor
+actor "Utilisateur" as User
+actor "Administrateur" as Admin
+actor "Service d'e-mail" as Mail <<système>>
+
+User <|-- Admin
+
+rectangle "Rolliste" {
+  package "Compte" {
+    usecase "S'inscrire" as UC_Register
+    usecase "Se connecter" as UC_Login
+    usecase "Réinitialiser\nson mot de passe" as UC_Reset
+    usecase "Se déconnecter" as UC_Logout
+    usecase "Supprimer son compte\n(droit à l'effacement)" as UC_Delete
+    usecase "Signaler un problème" as UC_Report
+  }
+  package "Administration" {
+    usecase "Gérer les utilisateurs" as UC_AdminUsers
+    usecase "Modérer les sessions\net les PJ" as UC_AdminModerate
+    usecase "Importer les données\ndu compendium" as UC_AdminImport
+  }
+}
+
+Visitor --> UC_Register
+Visitor --> UC_Login
+Visitor --> UC_Reset
+User --> UC_Logout
+User --> UC_Delete
+User --> UC_Report
+Admin --> UC_AdminUsers
+Admin --> UC_AdminModerate
+Admin --> UC_AdminImport
+UC_Reset --> Mail
+
+note right of UC_Login
+  La connexion est une **précondition**
+  des autres cas, pas un « include ».
+end note
+@enduml

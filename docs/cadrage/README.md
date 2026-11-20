@@ -3,7 +3,25 @@
 > **Objectif** : produire toutes les preuves du **bloc BC01** (oral devant le client), poser les bases
 > de **BC03** (équipe, méthode, planning) et aboutir à un **cahier des charges v1.0 validé par le
 > client**.
-> **Cahier des charges** : [cahier-des-charges.md](cahier-des-charges.md). **Budget** : 35 h. **Sortie** : réunion de validation avec la cliente (PV signé).
+> **Cahier des charges** : [cahier-des-charges.md](cahier-des-charges.md). **Budget** : 41,5 h (35 h au départ, plus 6,5 h de modélisation UML ajoutées le 2026-11-20). **Sortie** : réunion de validation avec la cliente (PV signé).
+
+## Modélisation UML : vue d'ensemble
+
+| Vue | Diagramme | Étape | Issue |
+| - | - | - | - |
+| Fonctionnelle | Cas d'utilisation (4 diagrammes) | 3 | #14 ✅ v0.2 |
+| Fonctionnelle | Descriptions textuelles des cas clés | 3 | #29 |
+| Fonctionnelle | Activité « jet → verdict » | 3 | #30 |
+| Structurelle | Classes : modèle du domaine | 3 | #16 |
+| Dynamique | Séquences : jet → verdict, rejoindre avec un code, authentification | 4 | #19, #32 |
+| Dynamique | États : session, adhésion, jet, combat | 4 | #31 |
+| Architecture | C4 niveaux 1 à 3 | 4 | #18 |
+| Architecture | Paquetages (monorepo, dépendances entre modules) | 4 | #34 |
+| Architecture | Déploiement | 4 | #33 |
+| Données | Modèle de données (un schéma par module) | 4 | #20 |
+
+Outil : **PlantUML**, avec la bibliothèque C4 pour les diagrammes C4. Les sources `.puml` font foi ;
+le rendu SVG est versionné à côté.
 
 ## Principes
 
@@ -27,11 +45,11 @@
 | 0 | **Préparer** | Équipe fictive (personas, compétences, capacité, TJM), méthode et rituels, tableau GitHub Projects | BC03.1, BC03.4, BC03.5 | Scrum Master, Tech Lead | 4 h |
 | 1 | **Comprendre le besoin** | Demande initiale de la cliente, cartographie des parties prenantes, guide puis compte rendu d'entretien, état des lieux de l'existant (papier et concurrents) | BC01.1, BC01.2 | PO | 6 h |
 | 2 | **Analyser le contexte** | SWOT avec impact environnemental et dépendances, étude de faisabilité, matrice des risques, processus de veille | BC01.3 à BC01.6 | PO, Architecte | 6 h |
-| 3 | **Spécifier** | User stories avec critères d'acceptation et MoSCoW, diagramme de cas d'utilisation, diagramme de fonctionnalités, modèle du domaine | BC01.2, BC01.10 | PO | 5 h |
-| 4 | **Concevoir** | Étude comparative consolidée, ADR, diagrammes C4 (niveaux 1 et 2, niveau 3 pour `table`), séquence « jet → verdict », modèle de données, analyse de sécurité (STRIDE simplifié), mesures d'écoconception | BC01.7, BC01.10 | Architecte | 7 h |
+| 3 | **Spécifier** | User stories avec critères d'acceptation et MoSCoW, diagrammes de cas d'utilisation, descriptions textuelles des cas clés, diagramme d'activité, diagramme de fonctionnalités, modèle du domaine | BC01.2, BC01.10 | PO | 8 h |
+| 4 | **Concevoir** | Étude comparative consolidée, ADR, diagrammes C4 (niveaux 1 à 3), diagrammes UML (séquences, états, déploiement, paquetages), modèle de données, analyse de sécurité (STRIDE simplifié), mesures d'écoconception | BC01.7, BC01.10 | Architecte | 10,5 h |
 | 5 | **Chiffrer et planifier** | Estimation du backlog, budget prévisionnel, roadmap et jalons | BC01.8, BC01.9, BC03.1 | Tech Lead, PO | 4 h |
 | 6 | **Restituer et faire valider** | Cahier des charges v1.0, note de préconisations, support de présentation pour la cliente, PV de validation | BC01.11, BC03.6 | PO, Tech Lead | 3 h |
-| | | | | **Total** | **35 h** |
+| | | | | **Total** | **41,5 h** |
 
 ## Détail des étapes
 
@@ -73,7 +91,9 @@
 
 - [ ] Reprendre les user stories existantes ([03-specifications/userStories.md](03-specifications/userStories.md)) : critères d'acceptation (Given/When/Then), MoSCoW et
   numérotation `US-xxx`.
-- [ ] Mettre à jour le diagramme de cas d'utilisation (le fichier `.plantUml` est vide pour l'instant).
+- [x] Diagrammes de cas d'utilisation v0.2 : ébauche corrigée et découpée en 4 diagrammes, revue documentée dans [03-specifications/README.md](03-specifications/README.md) (#14).
+- [ ] Descriptions textuelles des cas d'utilisation clés (#29).
+- [ ] Diagramme d'activité « jet → verdict », avec couloirs Joueur, Système et Meneur (#30).
 - [ ] Diagramme de fonctionnalités (arborescence des fonctionnalités par module).
 - [ ] Modèle du domaine : diagramme de classes conceptuel par contexte, aligné sur le glossaire.
 
@@ -83,6 +103,9 @@
   `0004-hebergement-gratuit.md`, `0005-authentification-maison.md`.
 - [ ] `docs/architecture/` : C4 contexte et conteneurs, composants du module `table`, séquence
   « jet → verdict », modèle de données par schéma.
+- [ ] Diagrammes d'états : session, adhésion, jet, combat (#31).
+- [ ] Séquences complémentaires : rejoindre avec un code, authentification avec refresh token (#32).
+- [ ] Diagramme de déploiement UML (#33) et diagramme de paquetages du monorepo (#34).
 - [ ] `docs/architecture/securite.md` : menaces (STRIDE simplifié) et mesures OWASP correspondantes.
 - [ ] `docs/architecture/ecoconception.md` : mesures retenues (référentiel RGESN).
 
