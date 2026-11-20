@@ -36,7 +36,9 @@
    avant d'agir.
 3. **Confidentialité** : les documents de la cliente (demande, entretiens, comptes rendus), les
    échanges juridiques (Studio Agate) et toute donnée personnelle vont dans `confidentiel/`
-   (ignoré par Git). Ne jamais les copier dans `docs/`, dans une issue ou dans un message de commit.
+   (ignoré par le dépôt public). Ce dossier est un **dépôt Git privé séparé**
+   (`BielsaG/rolliste-confidentiel`) : y committer à part. Ne jamais copier ces documents dans
+   `docs/`, dans une issue ou dans un message de commit.
    La documentation publique peut reprendre les besoins sous forme reformulée.
 4. **Rangement strict** : chaque fichier a une place prévue (voir §4). Ne jamais créer de dossier
    « utils », « helpers » ou « misc » fourre-tout. En cas de doute sur l'emplacement, poser la
