@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" role="img" aria-labelledby="title">
+  <title id="title">Rolliste</title>
+  <!-- Ébauche v0 : le texte dépend des polices installées ; à vectoriser (texte → tracés) pour la version finale. -->
+  <g font-family="Cinzel, 'Trajan Pro', Georgia, serif" font-size="64" font-weight="700" fill="#1F1A24">
+    <text x="12" y="76">R</text>
+    <text x="122" y="76" letter-spacing="2">LLISTE</text>
+  </g>
+  <!-- d20 vu de face, à la place du « O » -->
+  <g transform="translate(90 52)" stroke="#B3261E" stroke-width="3" stroke-linejoin="round" fill="none">
+    <polygon points="0,-28 24.2,-14 24.2,14 0,28 -24.2,14 -24.2,-14" fill="#B3261E" fill-opacity="0.08"/>
+    <polygon points="0,-13 12.5,9 -12.5,9"/>
+    <path d="M0,-13 L0,-28 M0,-13 L-24.2,-14 M0,-13 L24.2,-14
+             M-12.5,9 L-24.2,-14 M-12.5,9 L-24.2,14 M-12.5,9 L0,28
+             M12.5,9 L24.2,-14 M12.5,9 L24.2,14 M12.5,9 L0,28"/>
+    <text x="0" y="5" text-anchor="middle" font-family="Georgia, serif" font-size="10" font-weight="700" fill="#B3261E" stroke="none">20</text>
+  </g>
+</svg>
