@@ -1,0 +1,19 @@
+# ── Documents confidentiels ─────────────────────────────────────────────
+# Besoins client, entretiens, échanges juridiques (ex. Studio Agate).
+# Jamais dans le dépôt public : voir confidentiel/README.md
+/confidentiel/
+
+# ── Secrets et environnement ────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Dépendances et builds (complété en phase P1) ────────────────────────
+node_modules/
+dist/
+coverage/
+
+# ── Éditeurs et système ─────────────────────────────────────────────────
+.DS_Store
+*.swp
+.idea/

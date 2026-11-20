@@ -11,7 +11,7 @@ Statuts : ⬜ à faire · 🟨 en cours · ✅ preuve disponible.
 | Code | Compétence (reformulée) | Preuve prévue | Phase | Statut |
 | - | - | - | - | - |
 | BC01.1 | Cartographier les acteurs et parties prenantes | Cartographie des parties prenantes (matrice pouvoir/intérêt) | P0 | ⬜ |
-| BC01.2 | Analyser la demande via un entretien d'explicitation et un état des lieux de l'existant | Compte rendu d'entretien, audit de l'existant (fiches papier, apps concurrentes) | P0 | ⬜ |
+| BC01.2 | Analyser la demande via un entretien d'explicitation et un état des lieux de l'existant | Compte rendu d'entretien, audit de l'existant (fiches papier, apps concurrentes) | P0 | 🟨 |
 | BC01.3 | Cartographier opportunités et menaces, dont l'impact environnemental et les dépendances | SWOT et analyse d'impact environnemental | P0 | ⬜ |
 | BC01.4 | Évaluer la faisabilité technique (environnement, contraintes, budget) | Étude de faisabilité (budget 0 €, temps, droits) | P0 | ⬜ |
 | BC01.5 | Cartographier les risques techniques et fonctionnels avec indicateurs de contrôle | Matrice des risques (criticité), référentiel, indicateurs | P0 | ⬜ |

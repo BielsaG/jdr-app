@@ -34,21 +34,25 @@
 2. **Ordre de priorité** : le *cahier des charges* l'emporte sur les *ADR* ([docs/adr/](docs/adr/)),
    qui l'emportent sur les habitudes. Si une demande contredit l'un d'eux, le signaler
    avant d'agir.
-3. **Rangement strict** : chaque fichier a une place prévue (voir §4). Ne jamais créer de dossier
+3. **Confidentialité** : les documents de la cliente (demande, entretiens, comptes rendus), les
+   échanges juridiques (Studio Agate) et toute donnée personnelle vont dans `confidentiel/`
+   (ignoré par Git). Ne jamais les copier dans `docs/`, dans une issue ou dans un message de commit.
+   La documentation publique peut reprendre les besoins sous forme reformulée.
+4. **Rangement strict** : chaque fichier a une place prévue (voir §4). Ne jamais créer de dossier
    « utils », « helpers » ou « misc » fourre-tout. En cas de doute sur l'emplacement, poser la
    question.
-4. **Décision d'architecture = ADR.** Tout choix structurant (bibliothèque, pattern, découpage,
+5. **Décision d'architecture = ADR.** Tout choix structurant (bibliothèque, pattern, découpage,
    service AWS) donne lieu à une ADR courte au format `docs/adr/NNNN-titre.md` (contexte,
    options, décision, conséquences). Proposer l'ADR, ne pas trancher en silence.
-5. **Rôle d'équipe** : au début de chaque tâche importante, indiquer le persona porteur
+6. **Rôle d'équipe** : au début de chaque tâche importante, indiquer le persona porteur
    (voir `docs/agile/equipe.md`). Cela alimente les preuves
    du bloc BC03.
-6. **Traçabilité RNCP** : lorsqu'un livrable couvre une compétence (ex. `BC02.4`), le signaler
+7. **Traçabilité RNCP** : lorsqu'un livrable couvre une compétence (ex. `BC02.4`), le signaler
    en fin de réponse et proposer de mettre à jour le statut dans la matrice RNCP. Les codes
    `BCxx.y` renvoient **uniquement** au RNCP39583.
-7. **Poser des questions** plutôt que deviner sur : les règles du jeu, le périmètre du MVP, les
+8. **Poser des questions** plutôt que deviner sur : les règles du jeu, le périmètre du MVP, les
    coûts AWS, et tout ce qui touche aux données personnelles.
-8. **Git** : ne jamais committer ni pousser sans demande explicite. Une branche par fonctionnalité
+9. **Git** : ne jamais committer ni pousser sans demande explicite. Une branche par fonctionnalité
    (`feat/…`, `fix/…`, `docs/…`, `chore/…`), PR vers `main`. Commits au format **Conventional
    Commits** en anglais : `type(scope): message` (ex. `feat(table): add invite code generation`),
    compatible avec release-please.
@@ -109,6 +113,7 @@ libs/
   dice-engine/            # moteur de dés pur (aucune dépendance)
   rules-dragons/          # calcul automatique des fiches (règles DRAGONS / 5e, pur)
   shared-kernel/          # Result, erreurs de domaine, types de base
+confidentiel/            # 🔒 ignoré par Git : documents client et juridiques
 docs/
   adr/                    # Architecture Decision Records
   architecture/           # diagrammes C4, séquences, modèle de données

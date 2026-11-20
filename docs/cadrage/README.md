@@ -25,6 +25,9 @@ le rendu SVG est versionné à côté.
 
 ## Principes
 
+0. **Confidentialité.** Les documents de la cliente (demande, entretiens) et les échanges juridiques
+   vont dans `confidentiel/` (ignoré par Git). Voir [01-besoin/README.md](01-besoin/README.md).
+
 1. **On suit l'ordre d'un vrai projet** : comprendre → analyser → spécifier → concevoir → chiffrer →
    faire valider. Chaque étape s'appuie sur la précédente.
 2. **Deux casquettes, toujours séparées.**
@@ -64,12 +67,13 @@ le rendu SVG est versionné à côté.
 
 ### Étape 1 — Comprendre le besoin
 
-- [ ] `01-besoin/demande-client.md` : la demande telle que la cliente l'exprime, en une page et en
+- [x] 🔒 `confidentiel/cadrage/01-besoin/demande-client.md` (#4) : la demande telle que la cliente l'exprime, en une page et en
   langage d'usage. Elle est rédigée **avant** l'entretien, sous la casquette cliente.
 - [ ] `01-besoin/parties-prenantes.md` : liste, rôles, matrice pouvoir/intérêt, stratégie de
   communication par acteur. Acteurs : cliente, joueurs, MJ, bêta-testeurs, Studio Agate, équipe,
   école et jury.
-- [ ] `01-besoin/entretien-guide.md` puis `01-besoin/entretien-cr-AAAA-MM-JJ.md` : questions
+- [x] `01-besoin/entretien-guide.md` (public), puis 🔒 `confidentiel/cadrage/01-besoin/entretien-notes-AAAA-MM-JJ.md`
+  (notes brutes) et 🔒 `entretien-cr-AAAA-MM-JJ.md` (compte rendu validé par la cliente) (#6) : questions
   ouvertes de l'équipe, puis réponses de la cliente, besoins reformulés et points à arbitrer.
 - [ ] `01-besoin/existant.md` : déroulement d'une partie aujourd'hui (irritants des fiches papier) et
   benchmark de 4 à 6 outils (applis de fiches, tables virtuelles, lanceurs de dés), avec un tableau

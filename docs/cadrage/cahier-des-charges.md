@@ -367,8 +367,8 @@ Synthèse ci-dessous ; le détail des 34 compétences, avec preuves et statut, e
 ## 14. Nom du produit — **[VALIDÉ]**
 
 **Rolliste** : contraction de *roll* (lancer de dés) et de *rôliste* (joueur de jeu de rôle). Le
-« O » du logo est un **d20 vectoriel**. Ébauche : [docs/brand/logo-rolliste.svg](../brand/logo-rolliste.svg)
-(à vectoriser et à décliner en icône d'application en P1).
+« O » du logo est un **d20 vectoriel**. Typographie : **Cinzel Decorative** Bold (licence SIL OFL),
+lettres vectorisées. Logo, icône et charte : [docs/brand/](../brand/README.md).
 
 Aucune application homonyme n'a été trouvée (recherche du 2026-11-20). Le nom proche le plus
 connu est *Rolisteam*, une table virtuelle libre.
