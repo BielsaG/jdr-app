@@ -4,27 +4,26 @@
 | - | - | - |
 | User stories | [userStories.md](userStories.md) | #13 |
 | Diagrammes de cas d'utilisation | [cas-utilisation/](cas-utilisation/) | #14 |
+| Modèle conceptuel de données (MCD, Mocodo) | [MCD/](MCD/) | #20 |
 | Descriptions textuelles des cas d'utilisation clés | `cas-utilisation/descriptions.md` (à venir) | #29 |
 | Diagramme d'activité « jet → verdict » | à venir | #30 |
 | Diagramme de fonctionnalités | à venir | #15 |
 
-## Diagrammes de cas d'utilisation (v0.2)
+## Diagrammes de cas d'utilisation (v0.3)
 
 | Diagramme | Contenu |
 | - | - |
-| [uc-00-vue-ensemble](cas-utilisation/uc-00-vue-ensemble.svg) | Acteurs, hiérarchie des acteurs, domaines fonctionnels |
-| [uc-01-compte-administration](cas-utilisation/uc-01-compte-administration.svg) | Inscription, connexion, RGPD, signalement, administration |
-| [uc-02-personnages-sessions](cas-utilisation/uc-02-personnages-sessions.svg) | Gestion des PJ, création et adhésion aux sessions |
-| [uc-03-jeu-compendium](cas-utilisation/uc-03-jeu-compendium.svg) | Jets, verdicts, surcharges, combat, compendium |
+| [uc-00-vue-ensemble](cas-utilisation/uc-00-vue-ensemble.puml) | Acteurs, hiérarchie des acteurs, domaines fonctionnels |
+| [uc-01-compte-administration](cas-utilisation/uc-01-compte-administration.puml) | Inscription, connexion, RGPD, signalement, administration |
+| [uc-02-personnages-parties](cas-utilisation/uc-02-personnages-parties.puml) | Gestion des PJ, parties, adhésion, séances, mode de verdict, PJ géré par le MJ |
+| [uc-03-jeu-compendium](cas-utilisation/uc-03-jeu-compendium.puml) | Jets, verdicts, surcharges, combat, compendium |
 
-**Génération** (PlantUML installé localement) :
+Les sources `.puml` font foi. Le style commun est dans `_style.puml`. Les images sont produites
+à part par la PO.
 
-```bash
-cd docs/cadrage/03-specifications/cas-utilisation && plantuml -tsvg uc-*.puml
-```
-
-Les sources `.puml` font foi, et les `.svg` sont versionnés à côté. Le style commun est dans
-`_style.puml`.
+**v0.3 (2026-11-24)** : « session » devient **partie** et **séance** (glossaire du cahier des
+charges v0.7). Ajouts issus de l'entretien du 20/11 : ouvrir et clôturer une séance, rejoindre la
+séance en cours, régler le mode de verdict, gérer le PJ d'un joueur sans téléphone.
 
 ## Revue de l'ébauche v0.1 (2026-11-20)
 

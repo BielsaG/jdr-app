@@ -2,7 +2,9 @@
 
 | Livrable | Emplacement | Visibilité |
 | - | - | - |
-| Guide d'entretien | [entretien-guide.md](entretien-guide.md) | Public |
+| Guide d'entretien | [entretien-01-guide.md](entretien-01-guide.md) | Public |
+| Guide d'entretien n°2 (règles de gestion du modèle de données) | [entretien-02-guide.md](entretien-02-guide.md) | Public |
+| Notes et compte rendu de l'entretien n°2 | `confidentiel/cadrage/01-besoin/entretien-notes-2026-11-24.md`, `entretien-cr-2026-11-24.md` | 🔒 Confidentiel |
 | Demande initiale de la cliente (#4) | `confidentiel/cadrage/01-besoin/demande-client.md` | 🔒 Confidentiel |
 | Notes d'entretien (#6) | `confidentiel/cadrage/01-besoin/entretien-notes-2026-11-20.md` | 🔒 Confidentiel |
 | Compte rendu d'entretien validé (#6) | `confidentiel/cadrage/01-besoin/entretien-cr-2026-11-20.md` | 🔒 Confidentiel |

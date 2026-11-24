@@ -1,5 +1,5 @@
 @startuml uc-03-jeu-compendium
-title Rolliste — Jeu en session et compendium (v0.2)
+title Rolliste — Jeu en séance et compendium (v0.3)
 !include _style.puml
 left to right direction
 
@@ -8,7 +8,7 @@ actor "Meneur" as GM
 actor "Service de\nnotifications push" as Push <<système>>
 
 rectangle "Rolliste" {
-  package "Jeu en session" {
+  package "Jeu en séance" {
     usecase "Lancer un jet de dés" as UC_Roll
     usecase "Consulter les jets\nde la table" as UC_SeeRolls
     usecase "Agir pendant un combat" as UC_Act
@@ -56,5 +56,12 @@ note right of UC_Ruling
   **Principe n°1 : le MJ a le dernier mot.**
   Le verdict confirme, maquille ou modifie
   le résultat calculé d'un jet de joueur.
+  Seulement si la partie est réglée sur
+  « validation par le Meneur ».
+end note
+
+note bottom of UC_Roll
+  Possible seulement pendant
+  une séance ouverte.
 end note
 @enduml

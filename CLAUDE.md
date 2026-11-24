@@ -19,7 +19,7 @@
   l'être par la cliente.
 - **Principe métier n°1 : le MJ a toujours le dernier mot.** Le système calcule et propose ;
   le MJ valide, maquille ou modifie. Aucune règle ne doit empêcher l'improvisation. Toute
-  modification faite par le MJ est tracée (journal d'événements) et peut être annulée.
+  modification faite par le MJ est datée et visible ; historique et annulation après la V1.
 
 ## 2. Règles de travail pour Claude
 
@@ -58,6 +58,14 @@
    (`feat/…`, `fix/…`, `docs/…`, `chore/…`), PR vers `main`. Commits au format **Conventional
    Commits** en anglais : `type(scope): message` (ex. `feat(table): add invite code generation`),
    compatible avec release-please.
+10. **Économie de tokens** :
+    - ne jamais générer ni regarder d'images (SVG, PNG). L'auteure fait elle-même rendus et captures.
+      Ne pas installer d'outils de rendu (Mocodo, CairoSVG…) ;
+    - modèles de données : fournir le texte (Mocodo, PlantUML), petit à petit, sans le tester ;
+    - lire seulement la partie utile d'un fichier (offset / limit, grep), sans relire ce qui est déjà
+      connu ;
+    - pas de scripts d'optimisation ni de calculs longs sans accord préalable ;
+    - réponses courtes : l'essentiel, puis proposer d'approfondir.
 
 ## 3. Architecture (cible — voir cahier des charges §7 et §8)
 

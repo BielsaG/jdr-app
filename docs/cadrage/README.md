@@ -72,7 +72,7 @@ le rendu SVG est versionné à côté.
 - [ ] `01-besoin/parties-prenantes.md` : liste, rôles, matrice pouvoir/intérêt, stratégie de
   communication par acteur. Acteurs : cliente, joueurs, MJ, bêta-testeurs, Studio Agate, équipe,
   école et jury.
-- [x] `01-besoin/entretien-guide.md` (public), puis 🔒 `confidentiel/cadrage/01-besoin/entretien-notes-AAAA-MM-JJ.md`
+- [x] `01-besoin/entretien-01-guide.md` (public), puis 🔒 `confidentiel/cadrage/01-besoin/entretien-notes-AAAA-MM-JJ.md`
   (notes brutes) et 🔒 `entretien-cr-AAAA-MM-JJ.md` (compte rendu validé par la cliente) (#6) : questions
   ouvertes de l'équipe, puis réponses de la cliente, besoins reformulés et points à arbitrer.
 - [ ] `01-besoin/existant.md` : déroulement d'une partie aujourd'hui (irritants des fiches papier) et
