@@ -1,0 +1,74 @@
+@startuml seq-06-rejoindre-partie-code
+title Rolliste — Séquence : Rejoindre une partie par code (v0.1)
+!include ../cas-utilisation/_style.puml
+skinparam sequenceMessageAlign left
+skinparam BoxPadding 8
+hide footbox
+
+' Cas d'utilisation : uc-02 « Rejoindre une partie par code ».
+' Couches du backend : contrôleur (presentation) → service (application) → repository (infrastructure).
+
+actor "Joueur" as Player
+participant ":Application mobile" as Mobile
+
+box "Backend (API)" #F4F6FA
+  participant ":Contrôleur" as Ctrl
+  participant ":Service" as UseCase
+  participant ":Repository" as Repo
+end box
+
+database "Base de données" as DB
+
+Player -> Mobile : saisit le code d'invitation
+activate Mobile
+Mobile -> Mobile : vérifie le format du code
+
+Mobile -> Ctrl : POST /tables/join { code }
+activate Ctrl
+Ctrl -> Ctrl : vérifie l'authentification (JWT)
+
+alt non connecté
+  Ctrl --> Mobile : 401
+  Mobile --> Player : « Veuillez vous reconnecter »
+else connecté
+  Ctrl -> Ctrl : valide les données reçues
+
+  Ctrl -> UseCase : rejoindre la partie (utilisateur, code)
+  activate UseCase
+  UseCase -> Repo : chercher la partie par code
+  activate Repo
+  Repo -> DB : lecture
+  activate DB
+  DB --> Repo : partie ou rien
+  deactivate DB
+  Repo --> UseCase : partie ou rien
+  deactivate Repo
+
+  alt code inconnu ou expiré
+    UseCase --> Ctrl : erreur « code invalide »
+    Ctrl --> Mobile : 404
+    Mobile --> Player : « Code invalide ou expiré »
+  else déjà participant
+    UseCase --> Ctrl : erreur « déjà participant »
+    Ctrl --> Mobile : 409
+    Mobile --> Player : « Vous participez déjà à cette partie »
+  else nouvelle participation
+    UseCase -> UseCase : crée la participation (rôle : Joueur)
+    UseCase -> Repo : enregistrer la participation
+    activate Repo
+    Repo -> DB : écriture
+    activate DB
+    DB --> Repo : ok
+    deactivate DB
+    Repo --> UseCase : ok
+    deactivate Repo
+
+    UseCase --> Ctrl : succès (partie)
+    deactivate UseCase
+    Ctrl --> Mobile : 201 (partie)
+    deactivate Ctrl
+    Mobile --> Player : partie ajoutée à « Mes parties »
+    deactivate Mobile
+  end
+end
+@enduml

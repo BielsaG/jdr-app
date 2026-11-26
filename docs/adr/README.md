@@ -7,11 +7,11 @@ supprimée. Une décision remplacée passe au statut « Remplacée par NNNN ».
 
 | N° | Titre | Statut | Date |
 | - | - | - | - |
-| 0001 | Monolithe modulaire prêt pour les microservices | À rédiger (#17) | — |
-| 0002 | Front : Expo (joueurs) et Next.js (MJ) | À rédiger (#17) | — |
-| 0003 | ORM : Prisma | À rédiger (#17) | — |
-| 0004 | Hébergement sur offres gratuites | À rédiger (#17) | — |
-| 0005 | Authentification maison | À rédiger (#17) | — |
+| [0001](0001-monolithe-modulaire.md) | Monolithe modulaire prêt pour les microservices | **Proposée** | 2026-11-26 |
+| [0002](0002-front-expo-nextjs.md) | Front : Expo (joueurs) et Next.js (MJ) | **Proposée** | 2026-11-26 |
+| [0003](0003-orm-prisma.md) | ORM : Prisma | **Proposée** | 2026-11-26 |
+| [0004](0004-hebergement-gratuit.md) | Hébergement sur offres gratuites | **Proposée** | 2026-11-26 |
+| [0005](0005-authentification-maison.md) | Authentification maison | **Proposée** | 2026-11-26 |
 | [0006](0006-licence-du-code.md) | Licence du code | **Proposée** | 2026-11-20 |
 
 ## Modèle

@@ -50,7 +50,21 @@ avant de préparer l'entretien, sans relire la documentation de l'équipe.
 
 | Date | Fait | À faire | Blocages |
 | - | - | - | - |
-| | | | |
+| 26/11/2026 | **6 à 8 h, hors périmètre du sprint** : cas d'utilisation v0.3 (#14), 10 séquences du MVP (#19, #32), diagramme de classes (#16), MCD remis en place et complété (#20) | Revenir aux issues du sprint (#5, #7) | Écart de périmètre : voir l'arbitrage ci-dessous |
+| 26/11/2026 | #5 cartographie des parties prenantes et #7 état de l'existant (comparatif vérifié sur les sites officiels) : **objectif du sprint atteint** | Objectif atteint avant la fin du sprint : #8 (SWOT, étape 2) est tiré du backlog avec l'accord de la PO, dans l'ordre du cadrage | — |
+
+### Arbitrage n°1 — Travail de conception réalisé hors du périmètre du sprint (26/11/2026)
+
+> Preuve BC03.3. Décideurs : Gaiane (PO), Thomas (Scrum Master) ; avis de Karim (Tech Lead).
+
+| Élément | Contenu |
+| - | - |
+| **Constat** | L'objectif du sprint porte sur le **besoin** (#2 à #7). Le 26/11, la séance a été consacrée à la **conception** (étapes 3 et 4 du cadrage), prévue plus tard. |
+| **Cause** | Les diagrammes de cas d'utilisation en relecture (#14) ont fait apparaître des incohérences ; leur correction a entraîné les séquences, puis le modèle de données. |
+| **Impact** | 6 à 8 h passées hors périmètre, soit l'équivalent de presque toute la capacité du sprint (~8 h). Risque de ne pas finir #5 et #7 avant le 04/12. En contrepartie, la modélisation UML (BC01.10) est presque terminée. |
+| **Options** | A. Garder les livrables de conception, les rattacher au sprint et reporter #7 au sprint 2.<br>B. Garder les livrables, les compter hors vélocité (comme la préparation du 20/11) et maintenir le périmètre.<br>C. Mettre la conception en pause et revenir strictement au périmètre. |
+| **Décision** | **Option B** (décision de la PO le 26/11/2026) : le travail fait n'est pas perdu, et l'objectif du sprint reste lisible. |
+| **Action** | Rappel en planification du sprint 2 : vérifier que les issues entrant dans le sprint respectent l'ordre du cadrage, ou justifier l'écart. |
 
 ## Revue (04/12/2026)
 
