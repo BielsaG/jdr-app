@@ -72,7 +72,6 @@ docs/
   brand/         # logo et charte graphique
   cadrage/       # cahier des charges, besoins, spécifications, diagrammes UML
   rncp/          # correspondance entre compétences et preuves
-CLAUDE.md        # règles de travail du projet
 ```
 
 ## Documentation

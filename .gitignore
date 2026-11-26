@@ -18,5 +18,6 @@ coverage/
 *.swp
 .idea/
 
-.CLAUDE.md
-/.claude
+# ── Configuration locale de l'assistant ─────────────────────────────────
+/CLAUDE.md
+/.claude/
