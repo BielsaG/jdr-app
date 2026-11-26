@@ -18,4 +18,7 @@ coverage/
 .DS_Store
 *.swp
 .idea/
-.claude/settings.local.json
+
+# ── Configuration locale de l'assistant ─────────────────────────────────
+/CLAUDE.md
+/.claude/
