@@ -3,12 +3,15 @@ title Rolliste — Jeu en séance et compendium (v0.3)
 !include _style.puml
 left to right direction
 
+' ===== Acteurs humains : une seule colonne, de haut en bas =====
 actor "Joueur" as Player
 actor "Meneur" as GM
-actor "Service de\nnotifications push" as Push <<système>>
+
+' Lien invisible d'un seul tiret : même colonne, Joueur au-dessus du Meneur
+Player -[hidden]> GM
 
 rectangle "Rolliste" {
-  package "Jeu en séance" {
+  package "Jeu en séance et compendium" {
     usecase "Lancer un jet de dés" as UC_Roll
     usecase "Consulter les jets\nde la table" as UC_SeeRolls
     usecase "Agir pendant un combat" as UC_Act
@@ -16,14 +19,11 @@ rectangle "Rolliste" {
     usecase "Lancer un jet caché" as UC_Hidden
     usecase "Surcharger une valeur\nde la fiche d'un PJ" as UC_Override
     usecase "Appliquer un état\nà un personnage" as UC_Condition
-    usecase "Annuler la dernière action" as UC_Undo
     usecase "Mener un combat\n(initiative, tours)" as UC_Encounter
     usecase "Ajouter un ennemi\nau combat" as UC_AddEnemy
     usecase "Gérer des PNJ" as UC_Npc
     usecase "Faire monter\nun PJ de niveau" as UC_LevelUp
     usecase "Lancer un\névénement aléatoire" as UC_Random
-  }
-  package "Compendium" {
     usecase "Consulter le compendium" as UC_Compendium
     usecase "Gérer son contenu maison" as UC_Homebrew
   }
@@ -38,7 +38,6 @@ GM --> UC_Ruling
 GM --> UC_Hidden
 GM --> UC_Override
 GM --> UC_Condition
-GM --> UC_Undo
 GM --> UC_Encounter
 GM --> UC_Npc
 GM --> UC_LevelUp
@@ -47,21 +46,8 @@ GM --> UC_Homebrew
 GM --> UC_Compendium
 
 UC_Encounter <.. UC_AddEnemy : <<extend>>
-UC_AddEnemy ..> UC_Compendium : <<include>>
+' [norank] : ce lien ne décale pas « Consulter le compendium » d'une colonne ;
+' le cas reste avec les autres, près des acteurs (flèches courtes)
+UC_AddEnemy .[norank].> UC_Compendium : <<include>>
 
-UC_Ruling --> Push
-UC_Condition --> Push
-
-note right of UC_Ruling
-  **Principe n°1 : le MJ a le dernier mot.**
-  Le verdict confirme, maquille ou modifie
-  le résultat calculé d'un jet de joueur.
-  Seulement si la partie est réglée sur
-  « validation par le Meneur ».
-end note
-
-note bottom of UC_Roll
-  Possible seulement pendant
-  une séance ouverte.
-end note
 @enduml

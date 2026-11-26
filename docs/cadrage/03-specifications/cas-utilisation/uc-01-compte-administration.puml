@@ -3,12 +3,15 @@ title Rolliste — Compte et administration (v0.3)
 !include _style.puml
 left to right direction
 
+' ===== Acteurs : une seule colonne, de haut en bas =====
 actor "Visiteur" as Visitor
 actor "Utilisateur" as User
 actor "Administrateur" as Admin
-actor "Service d'e-mail" as Mail <<système>>
 
-User <|-- Admin
+' En « left to right direction », un tiret simple (-) garde les deux
+' acteurs dans la même colonne : la colonne se lit de haut en bas.
+Visitor <|- User
+User <|- Admin
 
 rectangle "Rolliste" {
   package "Compte" {
@@ -16,7 +19,7 @@ rectangle "Rolliste" {
     usecase "Se connecter" as UC_Login
     usecase "Réinitialiser\nson mot de passe" as UC_Reset
     usecase "Se déconnecter" as UC_Logout
-    usecase "Supprimer son compte\n(droit à l'effacement)" as UC_Delete
+    usecase "Supprimer son compte" as UC_Delete
     usecase "Signaler un problème" as UC_Report
   }
   package "Administration" {
@@ -35,10 +38,4 @@ User --> UC_Report
 Admin --> UC_AdminUsers
 Admin --> UC_AdminModerate
 Admin --> UC_AdminImport
-UC_Reset --> Mail
-
-note right of UC_Login
-  La connexion est une **précondition**
-  des autres cas, pas un « include ».
-end note
 @enduml
