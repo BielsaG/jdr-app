@@ -1,0 +1,169 @@
+@startuml modele-classes
+title Rolliste — Diagramme de classes du domaine (v0.4)
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam classAttributeIconSize 0
+hide circle
+
+' Entités principales du MVP. Noms en anglais (glossaire §6).
+' Le détail complet des données est dans le MCD : ../MCD/MCD.mcd
+' Visibilité : - privé, + public (pas de # protégé : aucun héritage dans le modèle).
+' Liaisons en notation « patte d'oie » : || un seul, |o zéro ou un, }o zéro ou plusieurs.
+' Méthodes : CRUD, puis méthodes métier quand elles portent une règle de gestion.
+
+' ===== Compte =====
+class User {
+  - id : UUID
+  - email : String
+  - username : String
+  - passwordHash : String
+  - platformRole : PlatformRole
+  - accountStatus : AccountStatus
+  - createdAt : DateTime
+  + {static} create(email : String, username : String, password : String) : User
+  + {static} findById(id : UUID) : User
+  + update(email : String, username : String) : void
+  + delete() : void
+}
+
+' ===== Personnage =====
+class Character {
+  - id : UUID
+  - name : String
+  - level : Integer
+  - experiencePoints : Integer
+  - strength : Integer
+  - dexterity : Integer
+  - constitution : Integer
+  - intelligence : Integer
+  - wisdom : Integer
+  - charisma : Integer
+  - baseMaxHitPoints : Integer
+  - currentHitPoints : Integer
+  - temporaryHitPoints : Integer
+  - awakening : Integer
+  - createdAt : DateTime
+  - archivedAt : DateTime [0..1]
+  + {static} create(owner : User, name : String, species : Species, characterClass : CharacterClass) : Character
+  + {static} findById(id : UUID) : Character
+  + update(name : String) : void
+  + delete() : void
+  + computeSheet() : JSON
+  + addOverride(targetField : String, value : String, reason : String) : Override
+}
+
+class Species {
+  - id : UUID
+  - name : String
+  - size : String
+  - speed : Integer
+  - abilityBonuses : JSON
+  + {static} findAll() : Species[]
+  + {static} findById(id : UUID) : Species
+}
+
+class CharacterClass {
+  - id : UUID
+  - name : String
+  - hitDie : Integer
+  - savingThrowProficiencies : JSON
+  - skillChoices : JSON
+  - pactMagic : Boolean
+  + {static} findAll() : CharacterClass[]
+  + {static} findById(id : UUID) : CharacterClass
+}
+
+class Override {
+  - id : UUID
+  - targetField : String
+  - value : String
+  - reason : String [0..1]
+  - createdAt : DateTime
+  - revokedAt : DateTime [0..1]
+  + {static} findByCharacter(character : Character) : Override[]
+  + revoke() : void
+}
+
+' ===== Partie =====
+class Table {
+  - id : UUID
+  - name : String
+  - description : String [0..1]
+  - inviteCode : String [0..1]
+  - rulingMode : RulingMode
+  - status : TableStatus
+  - createdAt : DateTime
+  + {static} create(gameMaster : User, name : String) : Table
+  + {static} findById(id : UUID) : Table
+  + {static} findByInviteCode(code : String) : Table
+  + update(name : String, description : String, rulingMode : RulingMode) : void
+  + delete() : void
+  + generateInviteCode() : String
+  + seatPlayer(user : User) : Seat
+  + openSession() : GameSession
+}
+
+class Seat {
+  - id : UUID
+  - status : SeatStatus
+  - joinedAt : DateTime
+  - leftAt : DateTime [0..1]
+  + {static} findByTable(table : Table) : Seat[]
+  + chooseCharacter(character : Character) : void
+  + leave() : void
+}
+
+class GameSession {
+  - id : UUID
+  - number : Integer
+  - openedAt : DateTime
+  - closedAt : DateTime [0..1]
+  + {static} findOpenByTable(table : Table) : GameSession
+  + isOpen() : Boolean
+  + close() : void
+}
+
+' ===== Jeu =====
+class Roll {
+  - id : UUID
+  - expression : String
+  - label : String [0..1]
+  - diceResults : JSON
+  - computedTotal : Integer
+  - isHidden : Boolean
+  - status : RollStatus
+  - rolledAt : DateTime
+  + {static} create(session : GameSession, seat : Seat, expression : String) : Roll
+  + {static} findBySession(session : GameSession) : Roll[]
+  + rule(kind : RulingKind, retainedTotal : Integer) : Ruling
+}
+
+class Ruling {
+  - id : UUID
+  - kind : RulingKind
+  - retainedTotal : Integer
+  - isSuccess : Boolean [0..1]
+  - isVisible : Boolean
+  - comment : String [0..1]
+  - ruledAt : DateTime
+  + {static} findByRoll(roll : Roll) : Ruling
+}
+
+' ===== Associations =====
+User ||--o{ Character : possède >
+User ||--o{ Table : mène >
+User ||--o{ Seat : occupe >
+
+Character }o--|| Species : appartient à >
+Character }o--|| CharacterClass : suit >
+Character ||--o{ Override : subit >
+
+Table ||--o{ Seat : accueille >
+Table ||--o{ GameSession : comporte >
+Seat }o--o| Character : engage >
+
+GameSession ||--o{ Roll : reçoit >
+Seat |o--o{ Roll : effectue >
+Roll ||--o| Ruling : est tranché par >
+@enduml

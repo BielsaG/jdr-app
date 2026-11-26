@@ -1,0 +1,53 @@
+@startuml seq-04-creer-partie
+title Rolliste — Séquence : Créer une partie (v0.1)
+!include ../cas-utilisation/_style.puml
+skinparam sequenceMessageAlign left
+skinparam BoxPadding 8
+hide footbox
+
+' Cas d'utilisation : uc-02 « Créer une partie ».
+' Couches du backend : contrôleur (presentation) → service (application) → repository (infrastructure).
+
+actor "Utilisateur" as User
+participant ":Application web" as Web
+
+box "Backend (API)" #F4F6FA
+  participant ":Contrôleur" as Ctrl
+  participant ":Service" as Service
+  participant ":Repository" as Repo
+end box
+
+database "Base de données" as DB
+
+User -> Web : saisit le nom de la partie
+activate Web
+Web -> Web : vérifie le format du nom
+
+Web -> Ctrl : POST /tables { nom }
+activate Ctrl
+Ctrl -> Ctrl : vérifie l'authentification (JWT)
+
+alt non connecté
+  Ctrl --> Web : 401
+  Web --> User : « Veuillez vous reconnecter »
+else connecté
+  Ctrl -> Ctrl : valide les données reçues
+  Ctrl -> Service : créer la partie (utilisateur, nom)
+  activate Service
+  Service -> Service : crée la partie\n(l'utilisateur en devient le Meneur)
+  Service -> Repo : enregistrer la partie
+  activate Repo
+  Repo -> DB : écriture
+  activate DB
+  DB --> Repo : ok
+  deactivate DB
+  Repo --> Service : ok
+  deactivate Repo
+  Service --> Ctrl : succès (partie)
+  deactivate Service
+  Ctrl --> Web : 201 (partie)
+  deactivate Ctrl
+  Web --> User : tableau de bord de la partie
+  deactivate Web
+end
+@enduml

@@ -1,0 +1,71 @@
+@startuml seq-10-surcharger-valeur
+title Rolliste — Séquence : Surcharger une valeur de la fiche d'un PJ (v0.1)
+!include ../cas-utilisation/_style.puml
+skinparam sequenceMessageAlign left
+skinparam BoxPadding 8
+hide footbox
+
+' Cas d'utilisation : uc-03 « Surcharger une valeur de la fiche d'un PJ ».
+' Principe métier n°2 : valeur effective = surcharge du Meneur ?? valeur calculée (cahier des charges §4).
+' Couches du backend : contrôleur (presentation) → service (application) → repository (infrastructure).
+
+actor "Meneur" as GM
+participant ":Application web" as Web
+
+box "Backend (API)" #F4F6FA
+  participant ":Contrôleur" as Ctrl
+  participant ":Service" as Service
+  participant ":Repository" as Repo
+end box
+
+database "Base de données" as DB
+
+GM -> Web : sur la fiche d'un PJ, choisit une valeur\net saisit la nouvelle valeur
+activate Web
+Web -> Ctrl : PUT /characters/{id}/overrides/{champ} { valeur }
+activate Ctrl
+Ctrl -> Ctrl : vérifie l'authentification (JWT)
+
+alt non connecté
+  Ctrl --> Web : 401
+  Web --> GM : « Veuillez vous reconnecter »
+else connecté
+  Ctrl -> Ctrl : valide les données reçues
+  Ctrl -> Service : surcharger la valeur (utilisateur, PJ, champ, valeur)
+  activate Service
+  Service -> Repo : chercher le PJ et sa partie
+  activate Repo
+  Repo -> DB : lecture
+  activate DB
+  DB --> Repo : PJ, partie ou rien
+  deactivate DB
+  Repo --> Service : PJ, partie ou rien
+  deactivate Repo
+
+  alt PJ introuvable
+    Service --> Ctrl : erreur « PJ introuvable »
+    Ctrl --> Web : 404
+    Web --> GM : « Personnage introuvable »
+  else l'utilisateur n'est pas le Meneur de la partie du PJ
+    Service --> Ctrl : erreur « accès refusé »
+    Ctrl --> Web : 403
+    Web --> GM : « Seul le Meneur de la partie peut modifier cette fiche »
+  else Meneur de la partie
+    Service -> Service : crée la surcharge (datée, visible)\net recalcule la valeur effective
+    Service -> Repo : enregistrer la surcharge
+    activate Repo
+    Repo -> DB : écriture
+    activate DB
+    DB --> Repo : ok
+    deactivate DB
+    Repo --> Service : ok
+    deactivate Repo
+    Service --> Ctrl : succès (fiche mise à jour)
+    deactivate Service
+    Ctrl --> Web : 200 (fiche mise à jour)
+    deactivate Ctrl
+    Web --> GM : valeur affichée comme surchargée
+    deactivate Web
+  end
+end
+@enduml

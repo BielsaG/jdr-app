@@ -8,6 +8,8 @@
 | 0.4 | 2026-11-20 | Front B validé ; commanditaire fictif ; évaluations en août 2028 ; demande d'autorisation à Studio Agate (§9) | Gaiane |
 | 0.5 | 2026-11-20 | Nom « Rolliste » ; données de jeu inventées en attendant Studio Agate (§9.1) ; plan de cadrage ; documents déplacés dans `docs/cadrage/` | Gaiane |
 | 0.6 | 2026-11-20 | Équipe fictive validée (Gaiane PO et cheffe de projet) ; commanditaire Marion Leclerc ; règles de langue ; GitHub Projects | Gaiane |
+| 0.7 | 2026-11-24 | Glossaire : partie et séance (au lieu de « session / salon »), demande d'adhésion, entrée du journal, peuple, classe, maîtrise. Vocabulaire aligné dans tout le document | Gaiane |
+| 0.8 | 2026-11-24 | Principe n°4 : pas d'annulation en V1, actions du MJ datées et visibles | Gaiane |
 
 Les éléments marqués **[PROPOSÉ]** sont des recommandations qui attendent une validation. Une fois
 validés, ils deviennent des ADR dans `docs/adr/`. La correspondance détaillée entre compétences et
@@ -65,8 +67,8 @@ un but en soi. Le périmètre et le planning sont pilotés par la couverture du 
 | O2 | Le MJ pilote la table depuis un seul écran | Joueurs, ennemis et combat visibles sans changer de page sur un écran ≥ 1024 px |
 | O3 | Le MJ garde le contrôle narratif total | 100 % des jets passent par l'arbitrage du MJ ; tout score est modifiable par le MJ |
 | O4 | Les actions sont visibles en temps réel | Jet du joueur affiché chez le MJ en < 500 ms (p95), serveur démarré |
-| O5 | Un personnage est conservé d'une session à l'autre | Expérience et inventaire conservés entre plusieurs sessions |
-| O6 | Les utilisateurs sont satisfaits | Indicateur de satisfaction mesuré après chaque session de bêta-test (BC03.6) |
+| O5 | Un personnage est conservé d'une partie à l'autre | Expérience et inventaire conservés entre plusieurs parties |
+| O6 | Les utilisateurs sont satisfaits | Indicateur de satisfaction mesuré après chaque séance de bêta-test (BC03.6) |
 
 ## 4. Principes métier (non négociables)
 
@@ -77,9 +79,10 @@ un but en soi. Le périmètre et le planning sont pilotés par la couverture du 
    `valeur effective = surcharge MJ ?? valeur calculée`. Une surcharge est visible, datée et
    révocable.
 3. **Improvisation d'abord.** Aucune règle n'est bloquante. Les automatismes sont des **suggestions**.
-4. **Traçabilité.** Chaque modification faite par le MJ est un événement horodaté : on peut consulter
-   l'historique et annuler la dernière action.
-5. **Un rôle par session, pas par compte.** Un même utilisateur peut être MJ d'une session et joueur
+4. **Traçabilité.** Chaque modification faite par le MJ (surcharge, verdict) est datée et visible.
+   L'historique consultable et l'annulation sont prévus après la V1 (entretien du 24/11 : trop de
+   complexité pour une première version).
+5. **Un rôle par partie, pas par compte.** Un même utilisateur peut être MJ d'une partie et joueur
    dans une autre.
 
 ## 5. Acteurs et parties prenantes
@@ -87,8 +90,8 @@ un but en soi. Le périmètre et le planning sont pilotés par la couverture du 
 | Acteur | Appareil principal | Description |
 | - | - | - |
 | Visiteur | — | Personne non connectée |
-| Joueur | Smartphone Android (APK) ; navigateur sinon | Utilisateur participant à une session avec un PJ |
-| Meneur (MJ) | Portable ou tablette (web) | Utilisateur ayant créé la session ; il arbitre tout |
+| Joueur | Smartphone Android (APK) ; navigateur sinon | Utilisateur participant à une partie avec un PJ |
+| Meneur (MJ) | Portable ou tablette (web) | Utilisateur ayant créé la partie ; il arbitre tout |
 | Administrateur | Ordinateur | Modération, support de niveau 2 |
 
 Parties prenantes du projet (cartographie détaillée à produire en P0, BC01.1) : commanditaire,
@@ -98,15 +101,20 @@ utilisateurs bêta-testeurs, équipe fictive, Studio Agate (ayant droit), école
 
 | Terme FR | Terme code (EN) | Définition |
 | - | - | - |
-| Personnage joueur (PJ) | `Character` | Fiche appartenant à un utilisateur, réutilisable entre sessions |
-| Personnage non joueur (PNJ) / ennemi | `NonPlayerCharacter` | Instance créée par le MJ dans une session, souvent à partir d'une créature du bestiaire |
+| Personnage joueur (PJ) | `Character` | Fiche appartenant à un utilisateur, réutilisable entre parties |
+| Personnage non joueur (PNJ) / ennemi | `NonPlayerCharacter` | Instance créée par le MJ dans une partie, souvent à partir d'une créature du bestiaire |
 | Créature (bestiaire) | `Creature` | Entrée de référence du compendium (profil type) |
-| Session / salon | `Table` | Partie organisée par un MJ, rejointe par des joueurs |
-| Participation | `Seat` | Lien entre un utilisateur, une session et le PJ engagé |
-| Code d'invitation | `InviteCode` | Code court permettant de rejoindre une session |
+| Peuple | `Species` | Origine du personnage (donnée de référence du compendium) |
+| Classe | `CharacterClass` | Classe du personnage (donnée de référence du compendium) ; indique notamment le type de magie |
+| Maîtrise | `Proficiency` | Compétence maîtrisée par un PJ (maîtrise simple ou expertise) |
+| Partie | `Table` | Aventure organisée par un MJ sur plusieurs séances, rejointe par des joueurs. Remplace « session / salon » |
+| Séance | `GameSession` | Moment de jeu ouvert puis clôturé par le MJ ; les jets n'ont lieu que pendant une séance ouverte |
+| Participation | `Seat` | Lien entre un utilisateur, une partie et le PJ engagé. Une **demande d'adhésion** est une participation au statut « demandée » |
+| Code d'invitation | `InviteCode` | Code court permettant de rejoindre une partie |
 | Jet de dés | `Roll` | Expression de dés (ex. `1d20+5`) et son résultat calculé |
 | Verdict | `Ruling` | Décision du MJ sur un jet : validé, maquillé ou modifié, visible ou caché |
 | Surcharge | `Override` | Valeur imposée par le MJ à la place d'une valeur calculée |
+| Entrée du journal | `ActionLogEntry` | Action du MJ horodatée, consultable et annulable (journal d'actions de la partie) |
 | Combat | `Encounter` | Affrontement avec ordre d'initiative et tours |
 | État | `Condition` | Effet appliqué à un personnage (empoisonné, à terre…) |
 | Compendium | `Compendium` | Données de référence : bestiaire, encyclopédie, sorts, objets, règles |
@@ -151,7 +159,7 @@ suit une Clean Architecture).
 | - | - | - |
 | `identity` | Comptes, authentification, réinitialisation, rôles plateforme | `identity` |
 | `character` | Fiches PJ, calcul automatique, surcharges, progression, inventaire | `character` |
-| `table` (**cœur du domaine**) | Sessions, invitations, participations, PNJ, combats, jets et verdicts, journal d'actions | `table` |
+| `table` (**cœur du domaine**) | Parties, séances, invitations, participations, PNJ, combats, jets et verdicts, journal d'actions | `table` |
 | `compendium` | Bestiaire, sorts, objets, règles, encyclopédie ; recherche plein texte | `compendium` |
 | `realtime` | WebSocket et notifications push ; **aucune logique métier** | — |
 
@@ -247,7 +255,7 @@ Il suit l'OWASP ASVS niveau 1 (preuve BC02.5).
 | Consignation des anomalies | GitHub Issues avec modèle de fiche d'anomalie, labels de sévérité, et formulaire « signaler un bug » dans l'app | BC04.3 |
 | Correctifs | Branche `fix/…` → CI → déploiement continu | BC04.4 |
 | Journal des versions | SemVer, Conventional Commits et release-please (CHANGELOG généré) | BC04.6 |
-| Retours utilisateurs | Questionnaire de satisfaction après chaque session de bêta-test | BC04.5, BC03.6 |
+| Retours utilisateurs | Questionnaire de satisfaction après chaque séance de bêta-test | BC04.5, BC03.6 |
 
 **Limites des offres gratuites** (vérifiées en novembre 2026, à revérifier avant chaque jalon) :
 
@@ -278,7 +286,7 @@ hébergeur.
 - **Données de jeu inventées**, compatibles avec les mécaniques de DRAGONS (5e) : quelques peuples,
   classes, sorts, objets et créatures. Volume volontairement réduit (de l'ordre de 3 à 15 entrées par
   type), écrit à la main en fichiers de fixtures versionnés.
-- **Données de volume** (utilisateurs, personnages, sessions) générées par **@faker-js/faker**
+- **Données de volume** (utilisateurs, personnages, parties) générées par **@faker-js/faker**
   (maintenu, locale `fr`, graine fixe pour des jeux de données reproductibles).
 - Écartés : `fantasy-content-generator` et `fantasy-name-generator` (non maintenus depuis 2022,
   contenus en anglais, sans lien avec les règles de DRAGONS).
@@ -291,7 +299,7 @@ hébergeur.
 | - | - |
 | Performance | Jet visible chez le MJ < 500 ms (p95) ; fiche chargée < 2 s en 4G (hors démarrage à froid) |
 | Disponibilité | Reconnexion WebSocket automatique ; aucun état perdu en cas de mise en veille du téléphone ; sonde de disponibilité |
-| Sécurité | OWASP Top 10 et ASVS niveau 1 ; autorisation par rôle **dans la session** ; rate limiting ; scan des secrets (gitleaks) et des dépendances en CI |
+| Sécurité | OWASP Top 10 et ASVS niveau 1 ; autorisation par rôle **dans la partie** ; rate limiting ; scan des secrets (gitleaks) et des dépendances en CI |
 | RGPD | Données minimales (e-mail, pseudo) ; droit à l'effacement ; registre des traitements ; hébergement en UE (Frankfurt) |
 | Accessibilité | RGAA / WCAG 2.1 AA : contrastes, lecteurs d'écran (TalkBack, VoiceOver, NVDA), cibles tactiles, navigation clavier côté MJ |
 | Éco-conception | Référentiel RGESN (exigé en BC01.3, BC01.6 et BC01.10) : payloads sobres, pas de polling, mise en veille hors usage, mesure (EcoIndex sur le web MJ) |
@@ -332,7 +340,7 @@ ensuite les fonctionnalités**. Le MVP est une **tranche verticale** qui suffit 
 | - | - | - | - |
 | P0 — Cadrage | Commanditaire, parties prenantes, entretien de besoin, opportunités et menaces, faisabilité, risques, veille, étude comparative, équipe fictive, estimation de charge et budget, architecture et modélisation UML, CDC v1, ADR | **BC01**, BC03 | 41,5 h |
 | P1 — Socle | Monorepo, environnements de dev et de test, CI, déploiement continu, supervision, Renovate, prototype (maquettes) | BC02, BC04 | 25 h |
-| P2 — Tranche verticale MVP | Authentification, PJ avec calcul automatique (sous-ensemble), session et invitation, jet → verdict en temps réel, modification de fiche par le MJ ; tests unitaires | **BC02** | 80 h |
+| P2 — Tranche verticale MVP | Authentification, PJ avec calcul automatique (sous-ensemble), partie, séance et invitation, jet → verdict en temps réel, modification de fiche par le MJ ; tests unitaires | **BC02** | 80 h |
 | P3 — Recette et mise en production | Cahier de recettes, plan de correction, manuels (déploiement, utilisation, mise à jour), bêta avec de vrais joueurs | BC02, BC03 | 25 h |
 | P4 — Exploitation | Plusieurs mois de bêta : anomalies consignées, correctifs, mises à jour, journal des versions, support, satisfaction | **BC04**, BC03 | 20 h (étalées) |
 | P5 — Pilotage continu | Tableaux de bord, comptes rendus, arbitrage, évaluation de l'équipe | **BC03** | 20 h (étalées) |

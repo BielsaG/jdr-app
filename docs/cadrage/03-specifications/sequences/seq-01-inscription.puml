@@ -1,0 +1,62 @@
+@startuml seq-01-inscription
+title Rolliste — Séquence : S'inscrire (v0.1)
+!include ../cas-utilisation/_style.puml
+skinparam sequenceMessageAlign left
+skinparam BoxPadding 8
+hide footbox
+
+' Cas d'utilisation : uc-01 « S'inscrire ».
+' Couches du backend : contrôleur (presentation) → service (application) → repository (infrastructure).
+' Module : identity (cahier des charges §7.7).
+
+actor "Visiteur" as Visitor
+participant ":Application" as App
+
+box "Backend (API)" #F4F6FA
+  participant ":Contrôleur" as Ctrl
+  participant ":Service" as Service
+  participant ":Repository" as Repo
+end box
+
+database "Base de données" as DB
+
+Visitor -> App : saisit pseudo, e-mail et mot de passe
+activate App
+App -> App : vérifie le format des champs
+
+App -> Ctrl : POST /auth/register { pseudo, e-mail, mot de passe }
+activate Ctrl
+Ctrl -> Ctrl : valide les données reçues
+Ctrl -> Service : créer le compte (pseudo, e-mail, mot de passe)
+activate Service
+Service -> Repo : chercher le compte par e-mail
+activate Repo
+Repo -> DB : lecture
+activate DB
+DB --> Repo : compte ou rien
+deactivate DB
+Repo --> Service : compte ou rien
+deactivate Repo
+
+alt e-mail déjà utilisé
+  Service --> Ctrl : erreur « e-mail déjà utilisé »
+  Ctrl --> App : 409
+  App --> Visitor : « Cet e-mail est déjà utilisé »
+else e-mail libre
+  Service -> Service : hache le mot de passe (Argon2id)
+  Service -> Repo : enregistrer le compte
+  activate Repo
+  Repo -> DB : écriture
+  activate DB
+  DB --> Repo : ok
+  deactivate DB
+  Repo --> Service : ok
+  deactivate Repo
+  Service --> Ctrl : succès
+  deactivate Service
+  Ctrl --> App : 201
+  deactivate Ctrl
+  App --> Visitor : « Compte créé », écran de connexion
+  deactivate App
+end
+@enduml

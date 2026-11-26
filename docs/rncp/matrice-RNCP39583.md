@@ -10,16 +10,16 @@ Statuts : ⬜ à faire · 🟨 en cours · ✅ preuve disponible.
 
 | Code | Compétence (reformulée) | Preuve prévue | Phase | Statut |
 | - | - | - | - | - |
-| BC01.1 | Cartographier les acteurs et parties prenantes | Cartographie des parties prenantes (matrice pouvoir/intérêt) | P0 | ⬜ |
-| BC01.2 | Analyser la demande via un entretien d'explicitation et un état des lieux de l'existant | Compte rendu d'entretien, audit de l'existant (fiches papier, apps concurrentes) | P0 | 🟨 |
-| BC01.3 | Cartographier opportunités et menaces, dont l'impact environnemental et les dépendances | SWOT et analyse d'impact environnemental | P0 | ⬜ |
-| BC01.4 | Évaluer la faisabilité technique (environnement, contraintes, budget) | Étude de faisabilité (budget 0 €, temps, droits) | P0 | ⬜ |
+| BC01.1 | Cartographier les acteurs et parties prenantes | [Cartographie des parties prenantes](../cadrage/01-besoin/parties-prenantes.md) (matrice pouvoir/intérêt, stratégie de communication) | P0 | ✅ |
+| BC01.2 | Analyser la demande via un entretien d'explicitation et un état des lieux de l'existant | Compte rendu d'entretien (confidentiel), [guides d'entretien](../cadrage/01-besoin/README.md), [état de l'existant et comparatif](../cadrage/01-besoin/existant.md) | P0 | ✅ |
+| BC01.3 | Cartographier opportunités et menaces, dont l'impact environnemental et les dépendances | [SWOT, impact environnemental et dépendances](../cadrage/02-analyse/swot.md) | P0 | ✅ |
+| BC01.4 | Évaluer la faisabilité technique (environnement, contraintes, budget) | [Étude de faisabilité](../cadrage/02-analyse/faisabilite.md) (technique, humaine, financière, juridique ; go sous conditions) | P0 | ✅ |
 | BC01.5 | Cartographier les risques techniques et fonctionnels avec indicateurs de contrôle | Matrice des risques (criticité), référentiel, indicateurs | P0 | ⬜ |
 | BC01.6 | Réaliser une veille technique, technologique et réglementaire, dont l'écoconception | Processus et sources de veille, fiches de veille | P0 → continu | ⬜ |
-| BC01.7 | Sélectionner l'architecture par étude comparative, sécurité incluse | Étude monolithe / microservices, ORM, GraphQL, front, hébergeurs ; ADR | P0 | 🟨 |
+| BC01.7 | Sélectionner l'architecture par étude comparative, sécurité incluse | Étude monolithe / microservices, ORM, GraphQL, front, hébergeurs ; [ADR 0001 à 0005](../adr/README.md) (proposées, à valider) | P0 | 🟨 |
 | BC01.8 | Évaluer la charge de travail | Backlog estimé (points et heures), méthode d'estimation | P0 | ⬜ |
 | BC01.9 | Estimer le coût et un budget prévisionnel | Budget à partir des TJM fictifs de l'équipe et des coûts d'infrastructure | P0 | ⬜ |
-| BC01.10 | Modéliser l'architecture logicielle (spécifications, sécurité, écoconception) | Diagrammes C4, UML (cas d'utilisation, classes, séquences), modèle de données | P0 | 🟨 |
+| BC01.10 | Modéliser l'architecture logicielle (spécifications, sécurité, écoconception) | Diagrammes C4, UML (cas d'utilisation ✅, séquences du MVP ✅, classes), modèle de données (porté par le diagramme de classes) | P0 | 🟨 |
 | BC01.11 | Proposer les décisions au client et obtenir sa validation | Support de présentation du cadrage, PV de validation | Fin P0 | ⬜ |
 
 ## BC02 — Concevoir et développer des applications logicielles (dossier et code)
@@ -42,7 +42,7 @@ Statuts : ⬜ à faire · 🟨 en cours · ✅ preuve disponible.
 | - | - | - | - | - |
 | BC03.1 | Planifier l'exécution (méthode, ordonnancement, ressources) | Choix de méthode (Scrum), planning, roadmap, affectation | P0 | 🟨 |
 | BC03.2 | Piloter l'avancement avec des indicateurs | GitHub Projects, burndown, vélocité, tableau de bord | Continu | 🟨 |
-| BC03.3 | Arbitrer à partir de l'analyse des écarts | Cas d'arbitrage documenté avec logigramme | Continu | ⬜ |
+| BC03.3 | Arbitrer à partir de l'analyse des écarts | Cas d'arbitrage documenté avec logigramme ; [arbitrage n°1](../agile/sprints/sprint-01.md) (écart de périmètre, sprint 1) | Continu | 🟨 |
 | BC03.4 | Piloter l'équipe (handicap, multiculturel, management, communication) | Matrice d'affectation, styles managériaux, plan de communication | Continu | 🟨 |
 | BC03.5 | Évaluer les besoins en compétences (recrutement, formation) | Grille de compétences, plan de développement, fiche de poste | P0 → continu | 🟨 |
 | BC03.6 | Rendre compte au client | Comptes rendus, points de validation, indicateurs de satisfaction | Continu | ⬜ |

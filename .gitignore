@@ -2,6 +2,7 @@
 # Besoins client, entretiens, échanges juridiques (ex. Studio Agate).
 # Jamais dans le dépôt public : voir confidentiel/README.md
 /confidentiel/
+/CLAUDE.md
 
 # ── Secrets et environnement ────────────────────────────────────────────
 .env
@@ -17,3 +18,4 @@ coverage/
 .DS_Store
 *.swp
 .idea/
+.claude/settings.local.json

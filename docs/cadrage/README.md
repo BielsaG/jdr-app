@@ -69,21 +69,21 @@ le rendu SVG est versionné à côté.
 
 - [x] 🔒 `confidentiel/cadrage/01-besoin/demande-client.md` (#4) : la demande telle que la cliente l'exprime, en une page et en
   langage d'usage. Elle est rédigée **avant** l'entretien, sous la casquette cliente.
-- [ ] `01-besoin/parties-prenantes.md` : liste, rôles, matrice pouvoir/intérêt, stratégie de
+- [x] `01-besoin/parties-prenantes.md` : liste, rôles, matrice pouvoir/intérêt, stratégie de
   communication par acteur. Acteurs : cliente, joueurs, MJ, bêta-testeurs, Studio Agate, équipe,
   école et jury.
-- [x] `01-besoin/entretien-guide.md` (public), puis 🔒 `confidentiel/cadrage/01-besoin/entretien-notes-AAAA-MM-JJ.md`
+- [x] `01-besoin/entretien-01-guide.md` (public), puis 🔒 `confidentiel/cadrage/01-besoin/entretien-notes-AAAA-MM-JJ.md`
   (notes brutes) et 🔒 `entretien-cr-AAAA-MM-JJ.md` (compte rendu validé par la cliente) (#6) : questions
   ouvertes de l'équipe, puis réponses de la cliente, besoins reformulés et points à arbitrer.
-- [ ] `01-besoin/existant.md` : déroulement d'une partie aujourd'hui (irritants des fiches papier) et
+- [x] `01-besoin/existant.md` : déroulement d'une partie aujourd'hui (irritants des fiches papier) et
   benchmark de 4 à 6 outils (applis de fiches, tables virtuelles, lanceurs de dés), avec un tableau
   « ce qu'ils font / ce qui manque pour une table en présentiel ».
 
 ### Étape 2 — Analyser le contexte
 
-- [ ] `02-analyse/swot.md` : forces, faiblesses, opportunités, menaces, **impact environnemental**
+- [x] `02-analyse/swot.md` : forces, faiblesses, opportunités, menaces, **impact environnemental**
   (RGESN) et **dépendances** (hébergeurs gratuits, Expo, Studio Agate).
-- [ ] `02-analyse/faisabilite.md` : faisabilité technique, humaine (capacité réelle), financière
+- [x] `02-analyse/faisabilite.md` : faisabilité technique, humaine (capacité réelle), financière
   (0 €) et juridique (droits). Conclusion : go, no go, ou go sous conditions.
 - [ ] `02-analyse/risques.md` : matrice probabilité × impact, avec pour chaque risque un indicateur de
   contrôle, un seuil d'alerte et une parade. Exemples : refus de Studio Agate, fin d'une offre
