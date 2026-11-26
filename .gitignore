@@ -18,5 +18,5 @@ coverage/
 *.swp
 .idea/
 
-/CLAUDE.md
+.CLAUDE.md
 /.claude
