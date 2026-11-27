@@ -338,9 +338,9 @@ ensuite les fonctionnalités**. Le MVP est une **tranche verticale** qui suffit 
 
 | Phase | Contenu | Blocs alimentés | Estimation |
 | - | - | - | - |
-| P0 — Cadrage | Commanditaire, parties prenantes, entretien de besoin, opportunités et menaces, faisabilité, risques, veille, étude comparative, équipe fictive, estimation de charge et budget, architecture et modélisation UML, CDC v1, ADR | **BC01**, BC03 | 41,5 h |
-| P1 — Socle | Monorepo, environnements de dev et de test, CI, déploiement continu, supervision, Renovate, prototype (maquettes) | BC02, BC04 | 25 h |
-| P2 — Tranche verticale MVP | Authentification, PJ avec calcul automatique (sous-ensemble), partie, séance et invitation, jet → verdict en temps réel, modification de fiche par le MJ ; tests unitaires | **BC02** | 80 h |
+| P0 — Cadrage | Commanditaire, parties prenantes, entretien de besoin, opportunités et menaces, faisabilité, risques, veille, étude comparative, équipe fictive, estimation de charge et budget, architecture et modélisation UML, wireframes et maquettes (prototype mobile joueur et web MJ), CDC v1, ADR | **BC01**, BC02, BC03 | 41,5 h |
+| P1 — Socle | Monorepo, environnements de dev et de test, CI, déploiement continu, supervision, Renovate | BC02, BC04 | 25 h |
+| P2 — Tranche verticale MVP | Authentification, PJ avec calcul automatique (sous-ensemble, dont les sorts : emplacements, DD de sauvegarde et bonus d'attaque), partie, séance et invitation, jet → verdict en temps réel, modification de fiche par le MJ ; combat simple : initiative, jets d'attaque et de dommages, PV ajustés par le MJ ; ennemis choisis dans le bestiaire (données inventées en attendant Studio Agate) ou saisis à la main ; états après la V1 ; tests unitaires | **BC02** | 80 h |
 | P3 — Recette et mise en production | Cahier de recettes, plan de correction, manuels (déploiement, utilisation, mise à jour), bêta avec de vrais joueurs | BC02, BC03 | 25 h |
 | P4 — Exploitation | Plusieurs mois de bêta : anomalies consignées, correctifs, mises à jour, journal des versions, support, satisfaction | **BC04**, BC03 | 20 h (étalées) |
 | P5 — Pilotage continu | Tableaux de bord, comptes rendus, arbitrage, évaluation de l'équipe | **BC03** | 20 h (étalées) |

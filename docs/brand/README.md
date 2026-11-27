@@ -18,7 +18,7 @@ Les SVG s'adaptent au **thème sombre** du système (`prefers-color-scheme`).
 | Usage | Police | Licence |
 | - | - | - |
 | Logo et titres | **Cinzel Decorative**, graisse Bold (700) | SIL Open Font License 1.1 (© 2012 Natanael Gama) |
-| Texte courant des applications | À définir pendant le prototype (P1) | — |
+| Texte courant des applications | À définir avec les maquettes (P0, #43) | — |
 
 Dans le logo, les lettres sont **vectorisées** : la police n'a pas besoin d'être installée pour
 l'afficher. Dans les applications, elle sera chargée via `@expo-google-fonts/cinzel-decorative`
@@ -32,7 +32,7 @@ l'afficher. Dans les applications, elle sera chargée via `@expo-google-fonts/ci
 | Dé (accent) | `#B3261E` | `#E5534B` |
 | Face du dé | accent, opacité 10 % | accent, opacité 16 % |
 
-La palette complète des interfaces sera définie avec le prototype (P1, Amara). Elle devra respecter
+La palette complète des interfaces sera définie avec les maquettes (P0, #43, Amara). Elle devra respecter
 les contrastes RGAA et privilégier un thème sombre pour les salles peu éclairées (besoin B-18).
 
 ## Régénérer le logo
