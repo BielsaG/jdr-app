@@ -26,7 +26,7 @@ le démarrage à froid, contourné le jour de la soutenance par une instance pay
 | - | - |
 | Charge du socle certifiant | ≈ 287 h, marge de 15 % comprise (cahier des charges §12) |
 | Capacité nécessaire | ≈ 3,3 h par semaine sur ≈ 88 semaines (décembre 2026 → août 2028) |
-| Capacité réelle prévue | ~4 h par semaine (base de planification du sprint 1) |
+| Capacité réelle prévue | ~4 h par semaine (base de planification du sprint SP-00.1) |
 | Compétences maîtrisées | TypeScript, Next.js, développement web |
 | Compétences à acquérir | React Native et Expo, temps réel (Socket.IO), sécurité de l'authentification |
 | Point d'attention | La séance du 26/11 a consommé 6 à 8 h hors périmètre : la capacité réelle varie fortement d'une semaine à l'autre |

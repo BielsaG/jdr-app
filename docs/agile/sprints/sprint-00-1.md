@@ -1,8 +1,8 @@
-# Sprint 1 — du 23/11/2026 au 04/12/2026
+# Sprint SP-00.1 — du 23/11/2026 au 04/12/2026
 
 > Phase P0 (cadrage), étapes 0 et 1. Méthode : [methode.md](../methode.md).
 > Tableau : [GitHub Projects « Rolliste »](https://github.com/users/BielsaG/projects/3), filtre
-> `sprint:"Sprint 1"`.
+> `sprint:"SP-00.1"`.
 
 ## Avant le sprint (préparation, 20/11/2026)
 
@@ -53,6 +53,7 @@ avant de préparer l'entretien, sans relire la documentation de l'équipe.
 | 26/11/2026 | **6 à 8 h, hors périmètre du sprint** : cas d'utilisation v0.3 (#14), 10 séquences du MVP (#19, #32), diagramme de classes (#16), MCD remis en place et complété (#20) | Revenir aux issues du sprint (#5, #7) | Écart de périmètre : voir l'arbitrage ci-dessous |
 | 26/11/2026 | #5 cartographie des parties prenantes et #7 état de l'existant (comparatif vérifié sur les sites officiels) : **objectif du sprint atteint** | Objectif atteint avant la fin du sprint : #8 (SWOT, étape 2) est tiré du backlog avec l'accord de la PO, dans l'ordre du cadrage | — |
 | 26/11/2026 | La PO valide la méthode v1 (#2) : Scrum + tableau Kanban, sprints de 2 semaines, rituels, convention de branche `type/rl-<n°>-description`. Vue Board validée (#3) | Fermer #2 par PR ; revoir la méthode après les cours de gestion de projet | — |
+| 27/11/2026 | Décision de la PO : branche de sprint `feat/SP-00` (conception) entre les branches d'issue et `main` ; sprints de la conception renommés `SP-00.<n>` ; la mise en place du cadre de travail passe au SP-01 | Renommer l'itération sur le board | — |
 
 ### Arbitrage n°1 — Travail de conception réalisé hors du périmètre du sprint (26/11/2026)
 
@@ -93,5 +94,5 @@ avant de préparer l'entretien, sans relire la documentation de l'équipe.
 
 ---
 
-*Summary for Jonas (EN): Sprint 1 goal is "the client has expressed her need and the existing
+*Summary for Jonas (EN): Sprint SP-00.1 goal is "the client has expressed her need and the existing
 situation is analysed". Scope: #2, #3, #4, #5, #6, #7 (13 points, about 8 hours).*
