@@ -13,6 +13,7 @@ supprimée. Une décision remplacée passe au statut « Remplacée par NNNN ».
 | [0004](0004-hebergement-gratuit.md) | Hébergement sur offres gratuites | **Proposée** | 2026-11-26 |
 | [0005](0005-authentification-maison.md) | Authentification maison | **Proposée** | 2026-11-26 |
 | [0006](0006-licence-du-code.md) | Licence du code | **Proposée** | 2026-11-20 |
+| [0007](0007-icones-lucide.md) | Bibliothèque d'icônes : Lucide | **Acceptée** | 2026-11-27 |
 
 ## Modèle
 
