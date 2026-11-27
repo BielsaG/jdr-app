@@ -28,7 +28,7 @@ Statuts : ⬜ à faire · 🟨 en cours · ✅ preuve disponible.
 | - | - | - | - | - |
 | BC02.1 | Mettre en œuvre les environnements de déploiement et de test, avec suivi de la qualité et de la performance | docker-compose, environnement de test, Sentry, rapports de qualité | P1 | ⬜ |
 | BC02.2 | Configurer l'intégration continue | Workflows GitHub Actions (lint, typecheck, tests, frontières, scans) | P1 | ⬜ |
-| BC02.3 | Concevoir un prototype selon l'ergonomie et les supports ciblés, sécurité incluse | Maquettes mobile (joueur) et web (MJ) | P1 | ⬜ |
+| BC02.3 | Concevoir un prototype selon l'ergonomie et les supports ciblés, sécurité incluse | Wireframes et maquettes mobile (joueur) et web (MJ) : #42, #43 | P0 | ⬜ |
 | BC02.4 | Développer un harnais de tests unitaires | Tests de `domain/`, `application/`, `dice-engine`, `rules-dragons` et rapport de couverture | P2 | ⬜ |
 | BC02.5 | Développer le logiciel (évolutivité, sécurité, accessibilité, spécifications) | Code des modules, mesures OWASP, audit RGAA | P2 | ⬜ |
 | BC02.6 | Déployer en continu et progressivement, en vérifiant auprès des utilisateurs | Pipeline de déploiement continu, déploiement progressif (bêta-testeurs), retours | P2–P3 | ⬜ |
