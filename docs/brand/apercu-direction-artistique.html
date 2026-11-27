@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grimoire nocturne</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Cinzel:wght@600&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<style>
+  .dark  { --bg:#15111A; --surface:#221C29; --raised:#2E2636; --border:#3D3347; --text:#EDE6F2; --muted:#B8AEC2; --accent:#E5534B; --gold:#C9A55C; --ok:#6BBF8A; --info:#7FA7E0; --mark:.06; }
+  .light { --bg:#F6F1E9; --surface:#FFFFFF; --raised:#EFE8DC; --border:#DDD3C4; --text:#1F1A24; --muted:#5A5163; --accent:#B3261E; --gold:#7A5C22; --ok:#2E7D4F; --info:#2F5FA8; --mark:.08; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#0b090d; font-family:'Atkinson Hyperlegible',sans-serif; display:flex; flex-wrap:wrap; gap:24px; padding:24px 16px; justify-content:center; }
+  .theme { background:var(--bg); color:var(--text); border-radius:6px; padding:20px; width:340px; max-width:100%; }
+  .logo { font-family:'Cinzel Decorative',serif; font-size:26px; margin:0 0 4px; }
+  .logo span { color:var(--accent); }
+  .label { color:var(--muted); font-size:13px; margin:0 0 16px; }
+  .swatches { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-bottom:20px; }
+  .sw { height:36px; border-radius:6px; border:1px solid var(--border); }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:16px; }
+  .head { position:relative; overflow:hidden; background:linear-gradient(180deg,var(--raised),var(--surface)); border-radius:6px; padding:16px; text-align:center; }
+  .head img { position:absolute; right:-30px; top:-20px; width:150px; opacity:var(--mark); pointer-events:none; }
+  .avatar { width:64px; height:64px; border-radius:50%; background:var(--raised); border:2px solid var(--gold); margin:0 auto 8px; position:relative; display:flex; align-items:center; justify-content:center; color:var(--muted); }
+  .lvl { position:absolute; right:-6px; bottom:-4px; background:var(--gold); color:var(--bg); font-weight:700; font-size:12px; width:22px; height:22px; border-radius:50%; line-height:22px; }
+  .name { font-family:'Cinzel',serif; font-variant:small-caps; font-size:20px; letter-spacing:.08em; margin:0; }
+  .sub { color:var(--muted); font-size:13px; margin:2px 0 0; }
+  .divider { display:flex; align-items:center; gap:8px; margin:14px 0 10px; color:var(--gold); font-family:'Cinzel',serif; font-variant:small-caps; letter-spacing:.08em; font-size:13px; }
+  .divider::before, .divider::after { content:""; flex:1; height:1px; background:var(--gold); opacity:.5; }
+  .tiles { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+  .tile { background:var(--raised); border-radius:6px; padding:8px 0 6px; text-align:center; font-weight:700; font-size:18px; }
+  .tile svg { display:block; margin:0 auto 2px; width:18px; height:18px; color:var(--muted); }
+  .hp { height:8px; background:var(--raised); border-radius:6px; margin:12px 0; overflow:hidden; }
+  .hp i { display:block; height:100%; width:70%; background:var(--ok); }
+  .abil { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:12px; }
+  .ab { position:relative; border:1px solid var(--border); border-radius:6px; text-align:center; padding:8px 0; }
+  .ab b { display:block; font-size:20px; }
+  .ab small { color:var(--muted); font-size:12px; }
+  .ab .mj { position:absolute; top:4px; right:4px; width:14px; height:14px; color:var(--gold); }
+  .row { display:flex; gap:8px; }
+  .btn { flex:1; display:flex; align-items:center; justify-content:center; gap:6px; border:none; border-radius:6px; padding:12px; font:700 15px 'Atkinson Hyperlegible',sans-serif; }
+  .btn svg { width:18px; height:18px; }
+  .primary { background:var(--accent); color:#fff; }
+  .ghost { background:transparent; color:var(--text); border:1px solid var(--border); }
+  .tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; font-size:12px; }
+  .tag { display:flex; align-items:center; gap:4px; border:1px solid currentColor; border-radius:6px; padding:2px 8px; }
+  .tag svg { width:12px; height:12px; }
+</style>
+</head>
+<body>
+<section class="theme dark">
+  <p class="logo">R<span>o</span>lliste</p>
+  <p class="label">Thème sombre (par défaut)</p>
+  <div class="swatches"><div class="sw" style="background:var(--bg)"></div><div class="sw" style="background:var(--surface)"></div><div class="sw" style="background:var(--raised)"></div><div class="sw" style="background:var(--accent)"></div><div class="sw" style="background:var(--gold)"></div></div>
+  <div class="card">
+    <div class="head">
+      <img src="icone-rolliste.svg" alt="">
+      <div class="avatar"><i data-lucide="user"></i><span class="lvl">3</span></div>
+      <p class="name">Lyra Vent-Gris</p><p class="sub">Elfe · Rôdeuse · Neutre bonne</p>
+    </div>
+    <div class="tiles" style="margin-top:12px">
+      <div class="tile"><i data-lucide="shield"></i>16</div><div class="tile"><i data-lucide="heart"></i>24</div><div class="tile"><i data-lucide="zap"></i>+2</div><div class="tile"><i data-lucide="footprints"></i>9</div>
+    </div>
+    <div class="hp"><i></i></div>
+    <div class="divider">Caractéristiques</div>
+    <div class="abil">
+      <div class="ab"><b>+3</b><small>FOR 16</small></div>
+      <div class="ab"><i class="mj" data-lucide="pencil"></i><b>+1</b><small>DEX 12</small></div>
+      <div class="ab"><b>+2</b><small>CON 14</small></div>
+    </div>
+    <div class="row"><button class="btn primary"><i data-lucide="dices"></i>Lancer</button><button class="btn ghost"><i data-lucide="sword"></i>Dommages</button></div>
+    <div class="tags"><span class="tag" style="color:var(--ok)"><i data-lucide="check"></i>Réussite</span><span class="tag" style="color:var(--info)"><i data-lucide="info"></i>Info</span><span class="tag" style="color:var(--gold)"><i data-lucide="pencil"></i>Modifié par le MJ</span></div>
+  </div>
+</section>
+<section class="theme light">
+  <p class="logo">R<span>o</span>lliste</p>
+  <p class="label">Thème clair</p>
+  <div class="swatches"><div class="sw" style="background:var(--bg)"></div><div class="sw" style="background:var(--surface)"></div><div class="sw" style="background:var(--raised)"></div><div class="sw" style="background:var(--accent)"></div><div class="sw" style="background:var(--gold)"></div></div>
+  <div class="card">
+    <div class="head">
+      <img src="icone-rolliste.svg" alt="">
+      <div class="avatar"><i data-lucide="user"></i><span class="lvl">3</span></div>
+      <p class="name">Lyra Vent-Gris</p><p class="sub">Elfe · Rôdeuse · Neutre bonne</p>
+    </div>
+    <div class="tiles" style="margin-top:12px">
+      <div class="tile"><i data-lucide="shield"></i>16</div><div class="tile"><i data-lucide="heart"></i>24</div><div class="tile"><i data-lucide="zap"></i>+2</div><div class="tile"><i data-lucide="footprints"></i>9</div>
+    </div>
+    <div class="hp"><i></i></div>
+    <div class="divider">Caractéristiques</div>
+    <div class="abil">
+      <div class="ab"><b>+3</b><small>FOR 16</small></div>
+      <div class="ab"><i class="mj" data-lucide="pencil"></i><b>+1</b><small>DEX 12</small></div>
+      <div class="ab"><b>+2</b><small>CON 14</small></div>
+    </div>
+    <div class="row"><button class="btn primary"><i data-lucide="dices"></i>Lancer</button><button class="btn ghost"><i data-lucide="sword"></i>Dommages</button></div>
+    <div class="tags"><span class="tag" style="color:var(--ok)"><i data-lucide="check"></i>Réussite</span><span class="tag" style="color:var(--info)"><i data-lucide="info"></i>Info</span><span class="tag" style="color:var(--gold)"><i data-lucide="pencil"></i>Modifié par le MJ</span></div>
+  </div>
+</section>
+<script>lucide.createIcons();</script>
+</body>
+</html>
