@@ -2,6 +2,7 @@
 # Besoins client, entretiens, échanges juridiques (ex. Studio Agate).
 # Jamais dans le dépôt public : voir confidentiel/README.md
 /confidentiel/
+/CLAUDE.md
 
 # ── Secrets et environnement ────────────────────────────────────────────
 .env

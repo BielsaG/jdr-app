@@ -1,0 +1,68 @@
+@startuml seq-02-connexion
+title Rolliste — Séquence : Se connecter (v0.1)
+!include ../cas-utilisation/_style.puml
+skinparam sequenceMessageAlign left
+skinparam BoxPadding 8
+hide footbox
+
+' Cas d'utilisation : uc-01 « Se connecter ».
+' Couches du backend : contrôleur (presentation) → service (application) → repository (infrastructure).
+' Module : identity (cahier des charges §7.7).
+
+actor "Visiteur" as Visitor
+participant ":Application" as App
+
+box "Backend (API)" #F4F6FA
+  participant ":Contrôleur" as Ctrl
+  participant ":Service" as Service
+  participant ":Repository" as Repo
+end box
+
+database "Base de données" as DB
+
+Visitor -> App : saisit e-mail et mot de passe
+activate App
+App -> Ctrl : POST /auth/login { e-mail, mot de passe }
+activate Ctrl
+Ctrl -> Ctrl : vérifie la limite de tentatives
+
+alt trop de tentatives
+  Ctrl --> App : 429
+  App --> Visitor : « Réessayez dans quelques minutes »
+else tentative autorisée
+  Ctrl -> Service : se connecter (e-mail, mot de passe)
+  activate Service
+  Service -> Repo : chercher le compte par e-mail
+  activate Repo
+  Repo -> DB : lecture
+  activate DB
+  DB --> Repo : compte ou rien
+  deactivate DB
+  Repo --> Service : compte ou rien
+  deactivate Repo
+  Service -> Service : vérifie le mot de passe (Argon2id)
+
+  alt compte inconnu ou mot de passe faux
+    Service --> Ctrl : erreur « identifiants incorrects »
+    Ctrl --> App : 401
+    App --> Visitor : « E-mail ou mot de passe incorrect »
+  else identifiants corrects
+    Service -> Service : génère les jetons (accès + rafraîchissement)
+    Service -> Repo : enregistrer le jeton de rafraîchissement
+    activate Repo
+    Repo -> DB : écriture
+    activate DB
+    DB --> Repo : ok
+    deactivate DB
+    Repo --> Service : ok
+    deactivate Repo
+    Service --> Ctrl : succès (jetons)
+    deactivate Service
+    Ctrl --> App : 200 (jetons)
+    deactivate Ctrl
+    App -> App : stocke les jetons de façon sécurisée
+    App --> Visitor : écran « Mes parties »
+    deactivate App
+  end
+end
+@enduml

@@ -1,0 +1,116 @@
+@startuml seq-09-jet-verdict
+title Rolliste — Séquence : Lancer un jet et rendre un verdict (v0.1)
+!include ../cas-utilisation/_style.puml
+skinparam sequenceMessageAlign left
+skinparam BoxPadding 8
+hide footbox
+
+' Cas d'utilisation : uc-03 « Lancer un jet de dés » et « Rendre un verdict sur un jet ».
+' Principe métier n°1 : le Meneur a le dernier mot (cahier des charges §4).
+' Couches du backend : contrôleur (presentation) → service (application) → repository (infrastructure).
+' L'authentification (401) est vérifiée comme dans les autres séquences ; elle n'est pas détaillée ici.
+
+actor "Joueur" as Player
+participant ":Application mobile" as Mobile
+
+box "Backend (API)" #F4F6FA
+  participant ":Contrôleur" as Ctrl
+  participant ":Service" as Service
+  participant ":Repository" as Repo
+  participant ":Temps réel\n(WebSocket)" as RT
+end box
+
+database "Base de données" as DB
+participant ":Application web" as Web
+actor "Meneur" as GM
+
+== Le joueur lance un jet ==
+
+Player -> Mobile : choisit un jet (ex. 1d20+5)
+activate Mobile
+Mobile -> Ctrl : POST /sessions/{id}/rolls { expression }
+activate Ctrl
+Ctrl -> Ctrl : vérifie l'authentification (JWT)
+Ctrl -> Service : lancer le jet (joueur, séance, expression)
+activate Service
+Service -> Repo : chercher la séance
+activate Repo
+Repo -> DB : lecture
+activate DB
+DB --> Repo : séance (état, mode de verdict)
+deactivate DB
+Repo --> Service : séance
+deactivate Repo
+
+alt séance clôturée
+  Service --> Ctrl : erreur « séance clôturée »
+  Ctrl --> Mobile : 409
+  Mobile --> Player : « La séance est terminée »
+else séance ouverte
+  Service -> Service : calcule le résultat (moteur de dés)
+  Service -> Repo : enregistrer le jet
+  activate Repo
+  Repo -> DB : écriture
+  activate DB
+  DB --> Repo : ok
+  deactivate DB
+  Repo --> Service : ok
+  deactivate Repo
+  Service -> RT : nouveau jet
+  activate RT
+  RT ->> Web : jet du joueur + résultat calculé
+  deactivate RT
+  Web --> GM : affiche le jet
+
+  alt mode « validation par le Meneur »
+    Service --> Ctrl : succès (jet en attente)
+    deactivate Service
+    Ctrl --> Mobile : 201 (en attente de verdict)
+    deactivate Ctrl
+    Mobile --> Player : « En attente du verdict du Meneur »
+    deactivate Mobile
+
+    ... Le Meneur rend son verdict ...
+
+    GM -> Web : valide, maquille ou modifie le résultat
+    activate Web
+    Web -> Ctrl : POST /rolls/{id}/ruling { verdict }
+    activate Ctrl
+    Ctrl -> Ctrl : vérifie l'authentification (JWT)
+    Ctrl -> Service : rendre le verdict (utilisateur, jet, verdict)
+    activate Service
+    Service -> Service : vérifie que l'utilisateur est le Meneur
+    alt pas le Meneur
+      Service --> Ctrl : erreur « accès refusé »
+      Ctrl --> Web : 403
+      Web --> GM : « Seul le Meneur peut rendre un verdict »
+    else Meneur de la partie
+      Service -> Repo : enregistrer le verdict (daté)
+      activate Repo
+      Repo -> DB : écriture
+      activate DB
+      DB --> Repo : ok
+      deactivate DB
+      Repo --> Service : ok
+      deactivate Repo
+      Service -> RT : verdict rendu
+      activate RT
+      RT ->> Mobile : verdict seulement\n(jamais le calcul s'il est maquillé)
+      deactivate RT
+      activate Mobile
+      Mobile --> Player : affiche le verdict
+      deactivate Mobile
+      Service --> Ctrl : succès
+      deactivate Service
+      Ctrl --> Web : 200
+      deactivate Ctrl
+      Web --> GM : jet marqué « jugé »
+      deactivate Web
+    end
+  else mode automatique
+    Service --> Ctrl : succès (résultat)
+    Ctrl --> Mobile : 201 (résultat)
+    Mobile --> Player : affiche le résultat
+  end
+end
+@enduml

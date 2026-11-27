@@ -1,0 +1,81 @@
+@startuml seq-03-creer-pj
+title Rolliste — Séquence : Créer un PJ (v0.1)
+!include ../cas-utilisation/_style.puml
+skinparam sequenceMessageAlign left
+skinparam BoxPadding 8
+hide footbox
+
+' Cas d'utilisation : uc-02 « Gérer ses PJ » (création).
+' Couches du backend : contrôleur (presentation) → service (application) → repository (infrastructure).
+' Calcul automatique : bibliothèque partagée rules-dragons (cahier des charges §7.2).
+
+actor "Utilisateur" as User
+participant ":Application mobile" as Mobile
+
+box "Backend (API)" #F4F6FA
+  participant ":Contrôleur" as Ctrl
+  participant ":Service" as Service
+  participant ":Repository" as Repo
+end box
+
+database "Base de données" as DB
+
+User -> Mobile : ouvre « Créer un PJ »
+activate Mobile
+Mobile -> Ctrl : GET /compendium/creation-options
+activate Ctrl
+Ctrl -> Service : lister les peuples et les classes
+activate Service
+Service -> Repo : chercher les peuples et les classes
+activate Repo
+Repo -> DB : lecture
+activate DB
+DB --> Repo : peuples, classes
+deactivate DB
+Repo --> Service : peuples, classes
+deactivate Repo
+Service --> Ctrl : peuples, classes
+deactivate Service
+Ctrl --> Mobile : 200 (peuples, classes)
+deactivate Ctrl
+Mobile --> User : formulaire de création
+
+User -> Mobile : saisit nom, peuple, classe et caractéristiques
+Mobile -> Mobile : vérifie les champs\net affiche un aperçu des valeurs calculées
+
+Mobile -> Ctrl : POST /characters { nom, peuple, classe, caractéristiques }
+activate Ctrl
+Ctrl -> Ctrl : vérifie l'authentification (JWT)
+
+alt non connecté
+  Ctrl --> Mobile : 401
+  Mobile --> User : « Veuillez vous reconnecter »
+else connecté
+  Ctrl -> Ctrl : valide les données reçues
+  Ctrl -> Service : créer le PJ (utilisateur, données saisies)
+  activate Service
+  Service -> Service : vérifie les règles de création\n(caractéristiques dans les bornes)
+
+  alt fiche invalide
+    Service --> Ctrl : erreur « fiche invalide »
+    Ctrl --> Mobile : 422
+    Mobile --> User : champs en erreur
+  else fiche valide
+    Service -> Service : calcule les valeurs automatiques\n(modificateurs, PV, CA… — règles DRAGONS)
+    Service -> Repo : enregistrer le PJ
+    activate Repo
+    Repo -> DB : écriture
+    activate DB
+    DB --> Repo : ok
+    deactivate DB
+    Repo --> Service : ok
+    deactivate Repo
+    Service --> Ctrl : succès (fiche)
+    deactivate Service
+    Ctrl --> Mobile : 201 (fiche)
+    deactivate Ctrl
+    Mobile --> User : affiche la fiche du PJ
+    deactivate Mobile
+  end
+end
+@enduml

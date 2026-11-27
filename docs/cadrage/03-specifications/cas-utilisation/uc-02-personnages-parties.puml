@@ -1,0 +1,56 @@
+@startuml uc-02-personnages-parties
+title Rolliste — Personnages et parties (v0.3)
+!include _style.puml
+left to right direction
+
+' ===== Acteurs : une seule colonne, de haut en bas =====
+actor "Utilisateur" as User
+actor "Joueur" as Player
+actor "Meneur" as GM
+
+' En « left to right direction », un tiret simple (-) garde les deux
+' acteurs dans la même colonne : la colonne se lit de haut en bas.
+User <|- Player
+User <|- GM
+
+' Lien invisible : impose l'ordre Joueur → Meneur
+Player -[hidden]> GM
+
+rectangle "Rolliste" {
+  package "Personnages" {
+    usecase "Gérer ses PJ\n(créer, consulter,\nmodifier, supprimer)" as UC_ManageChars
+  }
+  package "Parties" {
+    usecase "Consulter ses parties" as UC_MyParties
+    usecase "Rejoindre la séance\nen cours" as UC_JoinSession
+    usecase "Créer une partie" as UC_Create
+    usecase "Rejoindre une partie par code" as UC_Join
+    usecase "Choisir son PJ\npour la partie" as UC_PickChar
+    usecase "Quitter une partie" as UC_Leave
+    usecase "Générer un code\nd'invitation" as UC_InviteCode
+    usecase "Traiter les demandes\nd'adhésion" as UC_Requests
+    usecase "Régler le mode\nde verdict" as UC_RulingMode
+    usecase "Gérer le PJ d'un joueur\nsans téléphone" as UC_PaperChar
+    usecase "Ouvrir une séance" as UC_OpenSession
+    usecase "Clôturer une séance" as UC_CloseSession
+  }
+}
+
+User --> UC_ManageChars
+User --> UC_Create
+User --> UC_Join
+User --> UC_MyParties
+' « Rejoindre la séance » n'a pas d'acteur direct : il passe par
+' « Consulter ses parties » (le Joueur y accède par héritage).
+UC_MyParties <.. UC_JoinSession : <<extend>>
+
+Player --> UC_PickChar
+Player --> UC_Leave
+
+GM --> UC_InviteCode
+GM --> UC_Requests
+GM --> UC_RulingMode
+GM --> UC_PaperChar
+GM --> UC_OpenSession
+GM --> UC_CloseSession
+@enduml

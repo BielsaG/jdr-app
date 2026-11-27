@@ -1,28 +1,34 @@
 @startuml uc-00-vue-ensemble
-title Rolliste — Vue d'ensemble des cas d'utilisation (v0.2)
+title Rolliste — Vue d'ensemble des cas d'utilisation (v0.3)
 !include _style.puml
 left to right direction
 
+' ===== Acteurs : une seule colonne, de haut en bas =====
 actor "Visiteur" as Visitor
 actor "Utilisateur" as User
-actor "Joueur" as Player
 actor "Meneur" as GM
+actor "Joueur" as Player
 actor "Administrateur" as Admin
-actor "Service d'e-mail" as Mail <<système>>
-actor "Service de\nnotifications push" as Push <<système>>
 
-User <|-- Player
-User <|-- GM
-User <|-- Admin
+' En « left to right direction », un tiret simple (-) garde les deux
+' acteurs dans la même colonne : la colonne se lit de haut en bas.
+Visitor <|- User
+User <|- GM
+User <|- Player
+User <|- Admin
+
+' Liens invisibles : imposent l'ordre Meneur → Joueur → Administrateur
+GM -[hidden]> Player
+Player -[hidden]> Admin
 
 rectangle "Rolliste" {
   package "Compte" as P_Account {
     label "Détail : uc-01" as L_P_Account
   }
-  package "Personnages et sessions" as P_Sessions {
-    label "Détail : uc-02" as L_P_Sessions
+  package "Personnages & Parties" as P_Parties {
+    label "Détail : uc-02" as L_P_Parties
   }
-  package "Jeu en session et compendium" as P_Play {
+  package "Jeu en séance & Compendium" as P_Play {
     label "Détail : uc-03" as L_P_Play
   }
   package "Administration" as P_Admin {
@@ -31,19 +37,9 @@ rectangle "Rolliste" {
 }
 
 Visitor --> P_Account
-User --> P_Account
-User --> P_Sessions
+User --> P_Parties
+GM --> P_Parties
 Player --> P_Play
-GM --> P_Sessions
 GM --> P_Play
 Admin --> P_Admin
-P_Account --> Mail
-P_Play --> Push
-
-note bottom of User
-  Rôle porté par tout compte authentifié.
-  Joueur et Meneur sont des rôles **par session** :
-  un même utilisateur peut être Meneur d'une session
-  et Joueur dans une autre.
-end note
 @enduml

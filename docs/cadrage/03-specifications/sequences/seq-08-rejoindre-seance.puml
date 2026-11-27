@@ -1,0 +1,73 @@
+@startuml seq-08-rejoindre-seance
+title Rolliste — Séquence : Rejoindre la séance en cours (v0.1)
+!include ../cas-utilisation/_style.puml
+skinparam sequenceMessageAlign left
+skinparam BoxPadding 8
+hide footbox
+
+' Cas d'utilisation : uc-02 « Rejoindre la séance en cours » (extension de « Consulter ses parties »).
+' Couches du backend : contrôleur (presentation) → service (application) → repository (infrastructure).
+
+actor "Joueur" as Player
+participant ":Application mobile" as Mobile
+
+box "Backend (API)" #F4F6FA
+  participant ":Contrôleur" as Ctrl
+  participant ":Service" as Service
+  participant ":Repository" as Repo
+end box
+
+database "Base de données" as DB
+
+Player -> Mobile : choisit une partie dans « Mes parties »\npuis « Rejoindre la séance »
+activate Mobile
+Mobile -> Ctrl : POST /tables/{id}/sessions/current/join
+activate Ctrl
+Ctrl -> Ctrl : vérifie l'authentification (JWT)
+
+alt non connecté
+  Ctrl --> Mobile : 401
+  Mobile --> Player : « Veuillez vous reconnecter »
+else connecté
+  Ctrl -> Service : rejoindre la séance (utilisateur, partie)
+  activate Service
+  Service -> Repo : chercher la séance ouverte\net la participation du joueur
+  activate Repo
+  Repo -> DB : lecture
+  activate DB
+  DB --> Repo : séance, participation ou rien
+  deactivate DB
+  Repo --> Service : séance, participation ou rien
+  deactivate Repo
+
+  alt l'utilisateur ne participe pas à la partie
+    Service --> Ctrl : erreur « accès refusé »
+    Ctrl --> Mobile : 403
+    Mobile --> Player : « Vous ne participez pas à cette partie »
+  else aucune séance ouverte
+    Service --> Ctrl : erreur « aucune séance ouverte »
+    Ctrl --> Mobile : 404
+    Mobile --> Player : « Le Meneur n'a pas encore ouvert la séance »
+  else aucun PJ choisi pour la partie
+    Service --> Ctrl : erreur « PJ manquant »
+    Ctrl --> Mobile : 409
+    Mobile --> Player : « Choisissez d'abord votre PJ »
+  else séance ouverte et PJ choisi
+    Service -> Service : marque le joueur présent
+    Service -> Repo : enregistrer la présence
+    activate Repo
+    Repo -> DB : écriture
+    activate DB
+    DB --> Repo : ok
+    deactivate DB
+    Repo --> Service : ok
+    deactivate Repo
+    Service --> Ctrl : succès (séance, fiche du PJ)
+    deactivate Service
+    Ctrl --> Mobile : 200 (séance, fiche du PJ)
+    deactivate Ctrl
+    Mobile --> Player : écran de séance (fiche et dés)
+    deactivate Mobile
+  end
+end
+@enduml
