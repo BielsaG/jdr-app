@@ -54,6 +54,7 @@ avant de préparer l'entretien, sans relire la documentation de l'équipe.
 | 26/11/2026 | #5 cartographie des parties prenantes et #7 état de l'existant (comparatif vérifié sur les sites officiels) : **objectif du sprint atteint** | Objectif atteint avant la fin du sprint : #8 (SWOT, étape 2) est tiré du backlog avec l'accord de la PO, dans l'ordre du cadrage | — |
 | 26/11/2026 | La PO valide la méthode v1 (#2) : Scrum + tableau Kanban, sprints de 2 semaines, rituels, convention de branche `type/rl-<n°>-description`. Vue Board validée (#3) | Fermer #2 par PR ; revoir la méthode après les cours de gestion de projet | — |
 | 27/11/2026 | Décision de la PO : branche de sprint `feat/SP-00` (conception) entre les branches d'issue et `main` ; sprints de la conception renommés `SP-00.<n>` ; la mise en place du cadre de travail passe au SP-01 | Renommer l'itération sur le board | — |
+| 27/11/2026 | Affinage du backlog : 29 issues ouvertes ramenées à 10 (voir l'arbitrage n°2) | Fermer les issues fusionnées ou abandonnées | — |
 
 ### Arbitrage n°1 — Travail de conception réalisé hors du périmètre du sprint (26/11/2026)
 
@@ -67,6 +68,18 @@ avant de préparer l'entretien, sans relire la documentation de l'équipe.
 | **Options** | A. Garder les livrables de conception, les rattacher au sprint et reporter #7 au sprint 2.<br>B. Garder les livrables, les compter hors vélocité (comme la préparation du 20/11) et maintenir le périmètre.<br>C. Mettre la conception en pause et revenir strictement au périmètre. |
 | **Décision** | **Option B** (décision de la PO le 26/11/2026) : le travail fait n'est pas perdu, et l'objectif du sprint reste lisible. |
 | **Action** | Rappel en planification du sprint 2 : vérifier que les issues entrant dans le sprint respectent l'ordre du cadrage, ou justifier l'écart. |
+
+### Arbitrage n°2 — Simplification du backlog de cadrage (27/11/2026)
+
+> Preuve BC03.3. Décideurs : Gaiane (PO), Thomas (Scrum Master).
+
+| Élément | Contenu |
+| - | - |
+| **Constat** | 29 issues ouvertes pour le cadrage, découpées plus finement que nécessaire. Plusieurs outils (diagrammes d'activité, d'états, de paquetages, de fonctionnalités) ne sont pas exigés par le référentiel. |
+| **Analyse** | La fiche RNCP39583 évalue 11 compétences au bloc BC01 sans imposer d'outil (ni SWOT, ni UML, ni C4). Elle accepte un « diagramme de fonctionnalités **ou** cahier des charges ». |
+| **Options** | A. Garder les 29 issues.<br>B. Une issue par compétence ou par livrable, et abandonner les outils facultatifs. |
+| **Décision** | **Option B** (décision de la PO le 27/11/2026) : 10 issues ouvertes. Fusions : #12 → #10 ; #14, #29 → #13 ; #18, #19, #20, #32, #33 → #16 ; #35 → #17 ; #22 → #21 ; #24, #25 → #23 ; #27, #28 → #26. Abandon : #15, #30, #31, #34. Déjà faites : #5, #7, #8, #9. |
+| **Action** | Fermer les issues fusionnées (« merged into #X ») sans les supprimer, pour garder la trace. |
 
 ## Revue (04/12/2026)
 
