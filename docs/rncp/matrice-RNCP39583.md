@@ -42,7 +42,7 @@ Statuts : ⬜ à faire · 🟨 en cours · ✅ preuve disponible.
 | - | - | - | - | - |
 | BC03.1 | Planifier l'exécution (méthode, ordonnancement, ressources) | Choix de méthode : [méthode v1](../agile/methode.md), Scrum + Kanban, validée par la PO le 26/11/2026 ; planning, roadmap, affectation | P0 | 🟨 |
 | BC03.2 | Piloter l'avancement avec des indicateurs | [GitHub Projects « Rolliste »](https://github.com/users/BielsaG/projects/3) (vue Board validée le 26/11/2026), burndown, vélocité, tableau de bord | Continu | 🟨 |
-| BC03.3 | Arbitrer à partir de l'analyse des écarts | Cas d'arbitrage documenté avec logigramme ; [arbitrage n°1](../agile/sprints/sprint-01.md) (écart de périmètre, sprint 1) | Continu | 🟨 |
+| BC03.3 | Arbitrer à partir de l'analyse des écarts | Cas d'arbitrage documenté avec logigramme ; [arbitrage n°1](../agile/sprints/sprint-00-1.md) (écart de périmètre, sprint SP-00.1) | Continu | 🟨 |
 | BC03.4 | Piloter l'équipe (handicap, multiculturel, management, communication) | Matrice d'affectation, styles managériaux, plan de communication | Continu | 🟨 |
 | BC03.5 | Évaluer les besoins en compétences (recrutement, formation) | Grille de compétences, plan de développement, fiche de poste | P0 → continu | 🟨 |
 | BC03.6 | Rendre compte au client | Comptes rendus, points de validation, indicateurs de satisfaction | Continu | ⬜ |
