@@ -1,6 +1,7 @@
 # Méthode de travail — Rolliste
 
-> **Statut : brouillon, à valider par la PO.** Livrable de l'étape 0 du cadrage (issue #2).
+> **Statut : v1 validée par la PO le 26/11/2026.** Susceptible d'évoluer après les cours de gestion
+> de projet. Livrable de l'étape 0 du cadrage (issue #2).
 > Compétences visées : BC03.1 (cadre méthodologique), BC03.2 (outils de suivi et indicateurs).
 
 ## 1. Choix de la méthode
@@ -112,8 +113,11 @@ qui est en relecture plutôt que d'ouvrir une nouvelle tâche.
 
 ## 6. Flux Git (GitHub Flow)
 
-1. **Une branche par issue** : `type/<n°>-description-courte` (ex. `docs/4-client-request`,
-   `feat/42-invite-code`).
+1. **Une branche par issue** : `type/rl-<n°>-description-courte`, où `rl` est le préfixe du
+   projet Rolliste (ex. `docs/rl-4-client-request`, `feat/rl-42-invite-code`). La branche est
+   créée **depuis l'issue** pour être reliée au ticket : bouton « Create a branch » (encart
+   « Development ») ou `gh issue develop <n°> --name type/rl-<n°>-description --checkout`.
+   Le numéro dans le nom ne suffit pas à créer le lien.
 2. **Commits** en Conventional Commits, en anglais : `type(scope): message`.
 3. **Pull request** vers `main`, avec `Closes #<n°>` dans la description pour fermer l'issue
    automatiquement. Relecture avec la checklist.

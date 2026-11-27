@@ -52,6 +52,7 @@ avant de préparer l'entretien, sans relire la documentation de l'équipe.
 | - | - | - | - |
 | 26/11/2026 | **6 à 8 h, hors périmètre du sprint** : cas d'utilisation v0.3 (#14), 10 séquences du MVP (#19, #32), diagramme de classes (#16), MCD remis en place et complété (#20) | Revenir aux issues du sprint (#5, #7) | Écart de périmètre : voir l'arbitrage ci-dessous |
 | 26/11/2026 | #5 cartographie des parties prenantes et #7 état de l'existant (comparatif vérifié sur les sites officiels) : **objectif du sprint atteint** | Objectif atteint avant la fin du sprint : #8 (SWOT, étape 2) est tiré du backlog avec l'accord de la PO, dans l'ordre du cadrage | — |
+| 26/11/2026 | La PO valide la méthode v1 (#2) : Scrum + tableau Kanban, sprints de 2 semaines, rituels, convention de branche `type/rl-<n°>-description`. Vue Board validée (#3) | Fermer #2 par PR ; revoir la méthode après les cours de gestion de projet | — |
 
 ### Arbitrage n°1 — Travail de conception réalisé hors du périmètre du sprint (26/11/2026)
 
